@@ -6,6 +6,8 @@
 @interface LocationViewController
 - (void)verificationLocation:(double)arg1 andLat:(double)arg2;
 @end
+
+
 %hook LocationViewController
  
 ////更新定位
