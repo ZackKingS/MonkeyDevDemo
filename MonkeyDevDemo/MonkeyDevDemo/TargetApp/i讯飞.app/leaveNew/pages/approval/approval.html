@@ -1,0 +1,168 @@
+<!--suppress ALL -->
+<template>
+    <div class="page" data-page="search">
+        <div class="navbar">
+            <div class="navbar-inner ifly-subbar">
+                <div class="left no-margin">
+                    <a href="#" class="link back icon-only">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <!-- Searchbar with auto init -->
+                <form class="searchbar center">
+                    <div class="searchbar-inner no-padding">
+                        <div class="searchbar-input-wrap">
+                            <input placeholder="搜索" @keyup="keyUpSearch" type="search" />
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                        </div>
+                    </div>
+                </form>
+                <div class="right no-margin"><span class="link padding-left" @click="searchFn">搜索</span></div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="list media-list no-hairlines no-margin ifly-search-list">
+                <ul id="searchList"></ul>
+            </div>
+
+            <div class="list media-list no-hairlines no-margin ifly-search-list ifly-margin-top10 his-list">
+                <ul id="hisList">
+                    <li class="row item-content padding-right justify-content-flex-start"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- rest of component data and methods -->
+<script>
+    // script must return component object
+    return {
+        data: function () {
+            return {
+
+            }
+        },
+        methods: {
+            searchMain: function (query) {
+                var _this = this;
+                query = query.replace(/(^\s*)|(\s*$)/g, "");
+                if (query == "") {
+                    var warnNum = app.toast.create({
+                        text: '请输入搜索内容',
+                        position: 'center',
+                        closeTimeout: 2000,
+                        on: {
+                            close: function () {
+                                warnNum.destroy();
+                            },
+                        }
+                    });
+                    warnNum.open();
+                    return;
+                }
+
+                iflyRequest({
+                    "userAccount": sessionStorage.getItem('userAccount'),
+                    "token": sessionStorage.getItem('token'),
+                    "keyword": query.replace(/(^\s*)|(\s*$)/g, ""),
+                    "methodCode": "B100060012"
+                }, function (data) {
+
+                    if (data.result) {
+                        var htm = "";
+                        if (data.content.length != 0) {
+                            data.content.forEach(function (item) {
+                                htm += '<li class="item-content" data-id=' + item.email.split('@')[0] + ' data-number=' + item.empID + ' >' +
+                                    '<div class="item-inner">' +
+                                    '<div class="item-title"><span>' + item.name + '</span>&nbsp;' + item.email.split('@')[0] + '</div>' +
+                                    '<div class="item-text">' + item.deptName + '</div>' +
+                                    '</div>' +
+                                    '</li>'
+                            })
+                        } else {
+                            htm += '<li class="item-content item-empty">' +
+                                '<div class="item-inner">' +
+                                '<div class="item-title">暂无数据</div>' +
+                                '</div>' +
+                                '</li>'
+                        }
+                        $$('#searchList').html(htm);
+                        $$('#searchList').children('li').filter(function () {
+                            return !$$(this).hasClass('item-empty') && this;
+                        }).click(function () {
+                            if (_this.searchInput == 'mainApproval') {
+                                $$('#' + _this.searchInput).val($$(this).find('.item-title').children('span').html()).attr('data-id', $$(this).attr('data-number'));
+                            } else {
+                                $$('#' + _this.searchInput).val($$(this).find('.item-title').children('span').html()).attr('data-id', $$(this).attr('data-id'));
+                            }
+                            _this.$router.back()
+                        })
+
+                        //设置本地缓存
+                        var appropalArr = sessionStorage.getItem('appropalArr');
+                        if (appropalArr != null) {
+                            if (sessionStorage.getItem('appropalArr') != "") {
+                                var appropalArr = appropalArr.split(','), insert = true;
+                                appropalArr.forEach(function (item) {
+                                    if (item == query) insert = false;
+                                })
+                                if (insert) {
+                                    appropalArr.push(query);
+                                    sessionStorage.setItem('appropalArr', appropalArr.join(','))
+                                }
+                            } else {
+                                sessionStorage.setItem('appropalArr', query)
+                            }
+                        } else {
+                            sessionStorage.setItem('appropalArr', query)
+                        }
+
+                    } else {
+                        app.dialog.alert(data.message, '')
+                    }
+                })
+            },
+            searchFn: function (e) {
+                var query = $$(e.target).parent().parent().find('input[type=search]').val();
+                this.searchMain(query);
+            },
+            keyUpSearch: function (e) {
+                if (e.keyCode == '13') {
+                    var query = $$(e.target).val();
+                    this.searchMain(query);
+                }
+            }
+        },
+        on: {
+            pageInit: function (e, page) {
+
+                var _this = this;
+                _this.searchbar = app.searchbar.create({
+                    el: '.searchbar'
+                });
+                _this.searchInput = page.route.query.id;
+
+                //获取本地缓存
+                var appropalArr = sessionStorage.getItem('appropalArr');
+                if (appropalArr != null) {
+                    var htm = '';
+                    appropalArr = appropalArr.split(',');
+                    appropalArr.forEach(function (item) {
+                        if (item != " ") htm += '<div class="col-25">' + item + '</div>'
+                    })
+                    $$('#hisList').children().html(htm);
+                    $$('#hisList').children().children().click(function () {
+                        var query = $$(this).html();
+                        $$('.searchbar').find('input[type="search"]').val(query)
+                        _this.searchMain(query)
+                    })
+                }
+                console.log(appropalArr)
+            },
+            pageBeforeRemove: function (e, page) {
+                this.searchbar.destroy()
+            }
+        }
+    }
+</script>

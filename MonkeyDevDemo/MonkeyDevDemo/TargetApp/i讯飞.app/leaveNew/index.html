@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"
+        name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!-- Color theme for statusbar -->
+    <meta content="#fff" name="theme-color" />
+    <!-- Your app title -->
+    <title>考勤</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link href="js/plugins/framework7/css/framework7.min.css" rel="stylesheet" />
+    <link href="js/plugins/framework7/css/framework7.ios.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Statusbar overlay -->
+        <div class="statusbar">
+        </div>
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Initial Page, "data-name" contains page name -->
+            <div class="page" data-name="waitMaintan">
+                <!-- Top Navbar -->
+                <div class="navbar no-hairline">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a class="link icon-only" href="#" id="backHome"><i class="icon icon-home"></i></a>
+                        </div>
+                        <div class="title">
+                            <div class="tabbar ifly-tabbar">
+                                <a class="tab-link tab-link-active" href="#">待维护</a>
+                                <a class="tab-link" href="#">已提交</a>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <a class="link" href="/askForLeave/">请假</a>
+<!--                            <a class="link" href="/warn/">请假</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scrollable page content -->
+                <div class="page-content ptr-content" style="padding-bottom: 55px;">
+
+                    <div class="ptr-preloader">
+                        <div class="preloader"></div>
+                        <div class="ptr-arrow"></div>
+                    </div>
+
+                    <div class="list no-hairlines no-margin ifly-list">
+                        <ul id="listWap"></ul>
+                    </div>
+                </div>
+
+                <script type="text/template7" id="listTemplate">
+                        {{#if result}}
+                            {{#js_if "this.content.length!=0"}}
+                                {{#each this.content}}
+        							<li>
+        								<div class="item-content">
+        									<div class="item-media">
+        										<img alt="" src="img/ifly-icon01.png" width="38px" />
+        									</div>
+        									<div class="item-inner">
+        										<div class="item-title">
+        											<font>{{monthDay date}}</font>
+        											<span class="ifly-size13">{{weekLeave date}}&nbsp;{{startJudge this}} - {{endJudge this}}</span>
+        										</div>
+        									</div>
+        								</div>
+         								<div class="item-content ifly-button-top">
+                               				<div class="item-inner justify-content-flex-end padding-right">
+                                				<a class="button default-button" href="/askForLeave/?id={{id}}&date={{date}}&exceptStartTime={{exceptStartTime}}&exceptEndTime={{exceptEndTime}}">请假</a>
+                                                <!--<a class="button default-button" href="/warn/">请假</a>-->
+                                                <a class="button default-button" href="/maintain/?id={{id}}">考勤维护</a>
+                                    		</div>
+                               			</div>
+        							</li>
+                                {{/each}}
+                            {{else}}
+                                <li class="ifly-empty text-align-center">
+                                    <img width="30%" src="img/ifly-empty.png" alt="">
+                                    <p>暂无数据</p>
+                                </li>
+                            {{/js_if}}
+                        {{else}}
+                            <li class="ifly-empty text-align-center">
+                                <img width="30%" src="img/ifly-error.png" alt="">
+                                <p>请求出错</p>
+                            </li>
+                        {{/if}}
+                    </script>
+
+                <script type="text/template7" id="listAlreadyTemplate">
+                        {{#if result}}
+                            {{#js_if "this.content.length!=0"}}
+                            {{#each this.content}}
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">{{leaveTypeName}}</div>
+
+                                            {{#js_if "this.status=='正在处理'"}}
+                                            <div class="item-after padding-right text-color-orange">审批中</div>
+                                            {{else}}
+                                            <div class="item-after padding-right text-color-black">已通过</div>
+                                            {{/js_if}}
+
+                                            <!-- <div class="item-after padding-right text-color-red">被驳回</div> -->
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="item-content ifly-button-top">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <!--根据请假类型判断是否是维护数据-->
+                                                {{#js_if "this.leaveTypeId=='06' || this.leaveTypeId=='07' || this.leaveTypeId=='08'"}}
+                                                    <p {{#js_if "this.status=='已批准'"}}class="ifly-normal"{{/js_if}} >{{leaveDate this}}{{startJudge this}} <span>-</span>{{endJudge this}}</p>
+                                                {{else}}
+                                                    <p>{{leaveDate startTime}}</p>
+                                                    <p>{{leaveDate endTime}}</p>
+                                                {{/js_if}}
+                                            </div>
+                                            <!--{{#js_if "this.status=='未销假'"}}-->
+                                            <!--<div class="item-media padding-right"><a class="button default-button" href="/askForLeave/?id={{id}}&type=xj&leaveType={{leaveTypeId}}&leaveName={{leaveTypeName}}&starTime={{startTime}}&endTime={{endTime}}">销假</a></div>-->
+                                            <!--{{/js_if}}-->
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/each}}
+                            {{else}}
+                                <li class="ifly-empty text-align-center">
+                                    <img width="30%" src="img/ifly-empty.png" alt="">
+                                    <p>暂无数据</p>
+                                </li>
+                            {{/js_if}}
+                        {{else}}
+                            <li class="ifly-empty text-align-center">
+                                <img width="30%" src="img/ifly-error.png" alt="">
+                                <p>请求出错</p>
+                            </li>
+                        {{/if}}
+                    </script>
+
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script src="js/plugins/framework7/framework7.min.js" type="text/javascript"></script>
+    <script src="js/plugins/dataPicker/datePicker.js"></script>
+    <script src="js/plugins/cityPicker/regionsObject2.js"></script>
+    <script src="js/plugins/cityPicker/cityPicker.js"></script>
+
+    <!-- Path to your app js-->
+    <script src="js/apps/lib/aes.js" type="text/javascript"></script>
+    <script src="js/apps/lib/mode-ecb.js" type="text/javascript"></script>
+    <script src="js/apps/my-app.js" type="text/javascript"></script>
+</body>
+
+</html>

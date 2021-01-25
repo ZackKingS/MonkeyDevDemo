@@ -1,0 +1,892 @@
+<!--suppress JSAnnotator -->
+<template>
+    <div class="page" data-page="askForLeave">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a class="link icon-only back" href="#"><i class="icon icon-back"></i></a>
+                </div>
+                <div class="center title">请假</div>
+                <div class="right">
+                    <!--<a class="link" href="#">考勤记录</a>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="toolbar">
+            <div class="toolbar-inner row no-gap no-padding">
+                <!-- Toolbar links -->
+                <a @click="submitFn" class="button button-big col-100 button-orange" href="#">确认提交</a>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <form class="list inline-labels no-hairlines no-margin" id="form">
+                <ul class="ifly-margin-top10">
+                    <li>
+                        <a class="item-link item-content item-input" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">类型</div>
+                                <div class="item-input-wrap">
+                                    <input class="text-align-right" id="pickerType" name="leaveType" type="text"
+                                        placeholder="请选择" readonly="true" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <div style="display: none;" id="leaveYear" class="padding-right ifly-margin-top10 text-align-right text-color-orange ifly-size13">年假剩余时长
+                    <span>--</span> 天</div>
+
+                <ul class="ifly-margin-top10" id="leaveReason" style="display: none;">
+                    <li>
+                        <a class="item-link item-content item-input" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">请假原因</div>
+                                <div class="item-input-wrap">
+                                    <input class="text-align-right" id="pickerReason" data-type="" name="leaveReason"
+                                        type="text" placeholder="请选择" readonly="true" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="patient" style="display: none">
+                        <a class="item-link item-content item-input" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">请假原因</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" class="text-align-right" data-type="" name="leavePatient"
+                                        placeholder="请选择" readonly="true" id="patientObj" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item-content" style="display: none;">
+                        <div class="item-inner">
+                            <div class="item-input-wrap">
+                                <textarea name="leaveRemark" id="" cols="30" rows="10" placeholder="具体事由，必填"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ifly-margin-top10">
+                    <li>
+                        <a class="item-link item-content item-input" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">开始时间</div>
+                                <div class="item-input-wrap">
+                                    <input class="text-align-right" id="pickerStart" name="leaveStartTime" type="text"
+                                        placeholder="请选择" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item-link item-content item-input" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">结束时间</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" class="text-align-right" id="pickerEnd" name="leaveEndTime"
+                                        placeholder="请选择" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--产假-->
+                <ul id="productList" class="ifly-margin-top10" style="display: none;">
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title item-label">是否剖腹产或难产</div>
+                            <div class="item-input-wrap text-align-right">
+                                <label class="toggle toggle-init color-orange">
+                                    <input type="checkbox" name="sfpfc" />
+                                    <span class="toggle-icon"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title item-label">新生儿数量</div>
+                            <div class="item-input-wrap">
+                                <input type="text" @input="childHour" onblur="(this.value=='')&&(this.value=1)" class="text-align-right" name="cjxsrsl" placeholder="请输入" value="1"  />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!--哺乳假-->
+                <ul id="babyList" class="ifly-margin-top10" style="display: none;">
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title item-label">新生儿数量</div>
+                            <div class="item-input-wrap">
+                                <input type="text" @input="childHour" onblur="if(this.value=='') {this.value=1;document.getElementById('restHour').value=1}" class="text-align-right" name="xsrsl" placeholder="请输入" value="1"  />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title item-label">每天可休假时长（h）</div>
+                            <div class="item-input-wrap">
+                                <input type="text" readonly class="text-align-right" id="restHour" name="mtkxjsc"
+                                    placeholder="请输入" value="1" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="item-link item-content item-input" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">新生儿出生日期</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" id="bothDate" class="text-align-right" name="xsrcsrq"
+                                        placeholder="请输入" value="1" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--婚假-->
+                <ul id="marryList" class="ifly-margin-top10" style="display: none">
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">配偶姓名</div>
+                            <div class="item-input-wrap">
+                                <input name="leavePoName" type="text" placeholder="姓名" class="text-align-right input-with-value" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">身份证号</div>
+                            <div class="item-input-wrap">
+                                <input name="leavePoId" type="text" placeholder="配偶身份证号" class="text-align-right input-with-value" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="item-link item-content item-input window" href="#">
+                            <div class="item-inner">
+                                <div class="item-title item-label">结婚登记日期</div>
+                                <div class="item-input-wrap">
+                                    <input name='leaveMarryDate' type="text" class="text-align-right input-with-value"
+                                        id="marryDate" placeholder="请选择" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">配偶工作单位</div>
+                            <div class="item-input-wrap">
+                                <input name='leaveJob' type="text" placeholder="配偶工作单位" class="text-align-right input-with-value" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">家庭地址</div>
+                            <div class="item-input-wrap">
+                                <input name="leaveAdress" type="text" readonly="readonly" placeholder="家庭地址" class="text-align-right input-with-value"
+                                    id="familyAdress" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">配偶联系方式</div>
+                            <div class="item-input-wrap">
+                                <input name='leavePhone' type="number" placeholder="配偶联系方式" class="text-align-right input-with-value" />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!--丧假-->
+                <!--<ul id="passList" class="ifly-margin-top10" style="display: none">-->
+                    <!--<li>-->
+                        <!--<a class="item-link item-content item-input" href="#">-->
+                            <!--<div class="item-inner">-->
+                                <!--<div class="item-title item-label">过世对象</div>-->
+                                <!--<div class="item-input-wrap">-->
+                                    <!--<input name="gsdx" type="text" id="passName" placeholder="请选择" readonly="true" class="text-align-right"  />-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+                <ul class="ifly-margin-top10">
+                    <li>
+                        <a class="item-link item-content item-input" href="/approval/?id=leaveApprovePerson">
+                            <div class="item-inner">
+                                <div class="item-title item-label">审批人</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" class="text-align-right" id="leaveApprovePerson" name="leaveApprovePerson"
+                                        placeholder="请选择" readonly="true" />
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="ifly-margin-top10" id="fileLoad" style="display: none;">
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title item-label">附件上传</div>
+                        </div>
+                    </li>
+                    <li class="padding-left padding-right" style="padding-top: 5px;">
+                        <span class="text-color-red ifly-size13" id="detail">请上传结婚证</span>
+                    </li>
+                    <li class="row padding file-imgs justify-content-flex-start">
+                        <div class="col-25">
+                            <div class="input-wrap"><input class="file-input" type="file" multiple="multiple" accept="image/*"
+                                    id="fileInput" /></div>
+                        </div>
+                    </li>
+                </ul>
+                <!--<ul class="ifly-button-top">-->
+                <!--<li class="margin-left margin-right">-->
+                <!--<textarea name="leaveApplyReason" placeholder="填写申请信息" width="100%"  ></textarea>-->
+                <!--</li>-->
+                <!--</ul>-->
+
+            </form>
+        </div>
+    </div>
+</template>
+<!-- rest of component data and methods -->
+<script>
+    // script must return component object
+    return {
+        data: function () {
+            return {
+            }
+        },
+        methods: {
+            submitFile: function (data, fileName) {//附加上传
+
+                var form = new FormData(), self = this;
+                form.append("userAccount", sessionStorage.getItem('userAccount'));
+                form.append("token", sessionStorage.getItem('token'));
+                form.append("methodCode", 'B100010046');
+                form.append("fileName", fileName);
+                form.append("fileData", data);
+                // var fileurl = 'http://60.166.12.119:9080/TyTransService/tytranservice/transfer/transFile';
+                var fileurl = 'https://iflyapp.iflytek.com:9443/TyTransService/tytranservice/transfer/transFile';
+                app.preloader.show();
+                app.request({
+                    url: fileurl,
+                    method: 'POST',
+                    dataType: 'json',
+                    data: form,
+                    cache: false,
+                    contentType: 'multipart/form-data',
+                    success: function (data) {
+                        app.preloader.hide();
+                        if (data.result) {
+                            var htm = '';
+                            htm += '<div class="col-25" data-name="' + data.content.fileName + '" data-id="' + data.content.fileId + '">' +
+                                '<div class="file-img"><img src="' + data.content.url + '" width="100%" alt=""></div>' +
+                                '<span class="det"></span>' +
+                                '</div>'
+                            $$('.file-imgs').append(htm);
+                            $$('.file-imgs').children().find('.det').off('click', self.detFile);
+                            $$('.file-imgs').children().find('.det').on('click', self.detFile);
+                            $$('#fileInput').val('');
+                        }
+                    },
+                    error: function (data) {
+                        app.preloader.hide();
+                        app.dialog.alert('请求出错，请稍后再试', '')
+                        $$('#fileInput').val('');
+                    }
+                })
+
+
+            },
+            detFile: function (e) {//附件删除
+                var _this = this, obj = $$(e.target).parent(), id = obj.attr('data-id');
+                iflyRequest({
+                    'userAccount': sessionStorage.getItem('userAccount'),
+                    'token': sessionStorage.getItem('token'),
+                    'fileId': id,
+                    'methodCode': 'B100010047'
+                }, function (data) {
+                    if (data.result) {
+                        $$('.file-imgs').children().each(function () {
+                            if ($$(this).attr('data-id') == id) $$(this).remove()
+                        })
+                    } else {
+                        app.dialog.alert(data.message)
+                    }
+                })
+            },
+            submitFn: function (e) {//页面提交
+
+                var formData = app.form.convertToData('#form'), today = new Date(), submitTrue = true, _this = this;
+
+                // 请假
+                var dataJson = {
+                    "loginId": sessionStorage.getItem('userAccount'),
+                    "leaveTypeId": $$('#pickerType').attr('data-type'),
+                    "beginDate": formData.leaveStartTime.split(' ')[0],
+                    "beginTime": formData.leaveStartTime.split(' ')[1],
+                    "endDate": formData.leaveEndTime.split(' ')[0],
+                    "endTime": formData.leaveEndTime.split(' ')[1],
+                    "leaveReason": $$('#pickerReason').attr('data-type'),
+                    "leaveRemark": formData.leaveRemark,
+                    "phone": '',
+
+//                  "gsdx":'',//丧假必填
+
+                    "poxm": '',//婚假必填
+                    "jhrq": '',
+                    "gzdw": '',
+                    "jtdz": '',
+                    "plxfs": '',
+                    "posfz": '',
+
+                    "xsrsl": 1,//哺乳假 新生儿出生数量
+                    "xsrcsrq": '',
+                    "mtkxjsc": '',
+
+                    "sfpfc":0,//产假 是否难产或者剖腹产
+                    "cjxsrsl":1,//产假新生儿数量
+
+                    "attachmentName":'',//附件名称
+                    "attachmentLink":'',
+
+                    "zxsprLoginId": $$('#leaveApprovePerson').attr('data-id')
+                };
+
+                //判断请假类型以及自选审批人是否为空
+                if (dataJson.leaveTypeId == null || dataJson.zxsprLoginId == null) {
+                    submitTrue = false
+                }
+
+                //病假
+                if (dataJson.leaveTypeId == 'S') {
+                    if ((new Date(formData.leaveEndTime).getTime() - new Date(formData.leaveStartTime).getTime()) / (1000 * 24 * 3600) >= 3 && $$('.file-imgs').children().length == 1) {
+                        app.dialog.alert('三天及以上病假需上传附件！', '');
+                        return
+                    }
+                    dataJson.leaveReason = $$('#patientObj').attr('data-type');
+                }
+
+                //婚假
+                if (dataJson.leaveTypeId == 'M') {//婚假
+                    if (formData.leavePoName == '' || formData.leaveMarryDate == '' || formData.leaveAdress == '' || formData.leavePhone == '' || formData.leavePoId == '') {
+                        submitTrue = false
+                    } else {
+                        if (!checkPhone(formData.leavePhone)) return;
+                        if (!this.matchId(formData.leavePoId)) return
+                        dataJson.poxm = formData.leavePoName;
+                        dataJson.jhrq = formData.leaveMarryDate;
+                        dataJson.jtdz = formData.leaveAdress;
+                        dataJson.plxfs = formData.leavePhone;
+                        dataJson.gzdw = formData.leaveJob;
+                        dataJson.posfz = formData.leavePoId;
+                    }
+                }
+
+                // 产假
+                if(dataJson.leaveTypeId=='T'){
+                    dataJson.sfpfc = formData.sfpfc=="on"?1:0;
+                    dataJson.cjxsrsl = formData.cjxsrsl;
+                }
+
+                //哺乳假
+                if (dataJson.leaveTypeId == 'W') {
+
+                    if (formData.xsrsl == 0) {
+                        app.dialog.alert('新生儿数量最少为1！', '');
+                        return
+                    }
+
+                    if (formData.xsrsl == '' || formData.mtkxjsc == '' || formData.xsrcsrq == '') {
+                        submitTrue = false;
+                    } else {
+                        dataJson.xsrsl = formData.xsrsl;
+                        dataJson.xsrcsrq = formData.xsrcsrq;
+                        dataJson.mtkxjsc = formData.mtkxjsc;
+                    }
+                }
+
+                //丧假
+//                if(dataJson.leaveTypeId=='F'){
+//                    if(formData.gsdx==''){
+//                        submitTrue=false;
+//                    }else{
+//                        dataJson.gsdx=$$('#passName').attr('data-type');
+//                    }
+//                }
+
+                //请假原因是否为空
+                if (dataJson.leaveTypeId == 'L' || dataJson.leaveTypeId == 'S' || dataJson.leaveTypeId == 'N' || dataJson.leaveTypeId == 'V') {
+                    if (dataJson.leaveReason == "") {
+                        submitTrue = false;
+                    } else if (dataJson.leaveReason == "12" && dataJson.leaveRemark == "") {
+                        submitTrue = false;
+                    }
+                }
+
+                if (!submitTrue) {
+                    app.dialog.alert('请将页面信息填写完整');
+                    return;
+                }
+
+                //附件
+                if (dataJson.leaveTypeId == 'M' || dataJson.leaveTypeId == 'T' || dataJson.leaveTypeId == 'P' || dataJson.leaveTypeId == 'R' || dataJson.leaveTypeId == 'W' || (dataJson.leaveTypeId == 'S' && $$('.file-imgs').children().length > 1)) {
+                    if ($$('.file-imgs').children().length == 1) {
+                        app.dialog.alert('请上传附件');
+                        return
+                    } else {
+                        var nameArr = [], urlArr = [];
+                        $$('.file-imgs').children().each(function (index, item) {
+                            if (index != 0) {
+                                nameArr.push($$(this).attr('data-name'));
+                                urlArr.push($$(this).find('img').attr('src'))
+                            }
+                            dataJson.attachmentName = nameArr.join('|');
+                            dataJson.attachmentLink = urlArr.join('|');
+                        })
+                    }
+                }
+                console.log(JSON.stringify(dataJson));
+                app.preloader.show();
+                iflyRequest({
+                    "userAccount": sessionStorage.getItem('userAccount'),
+                    "token": sessionStorage.getItem('token'),
+                    "methodCode": "B100100001",
+                    "param": {
+                        "secretkey": "Q1JNX09BOklmbHl0ZWsyMDE3",
+                        "workflowname": "LEAVEBILL",
+                        "mainData": JSON.stringify(dataJson)
+                    }
+                }, function (data) {
+                    if (data.flag == 'SUCCESS') {
+                        app.toast.create({
+                            text: '提交成功',
+                            position: 'center',
+                            closeTimeout: 1500
+                        }).open();
+                        _this.$router.back('/', {force:true});
+                    } else {
+                        app.dialog.alert(data.message, '')
+                    }
+                })
+            },
+            matchId: function (str) {
+                var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                var flag = reg.test(str);
+                if (!flag) {
+                    app.dialog.alert('身份证格式不正确，请重新输入');
+                    return false
+                }
+                return true
+            },
+            childHour: function (e) {
+                e.target.value = e.target.value.replace(/[^\d]/g, '');
+                if(parseInt(e.target.value)===0){
+                    app.toast.create({
+                        text: '数量最小为1',
+                        position: 'center',
+                        closeTimeout: 1500
+                    }).open();
+                    e.target.value=1;
+                }
+                e.target.name=='xsrsl'&&$$('#restHour').val(e.target.value)
+            }
+        },
+        on: {
+            pageInit: function (e, page) {
+
+                var _this = this, query = page.router.currentRoute.query;
+                var today = new Date();
+                showTabBarJS(false);
+
+                //请假类型
+                postData('getLeaveTypeListNew', function (data) {
+                    var valueArr = [], typeItem = [];
+                    if (typeof (data.leaveTypeList) == 'object' && data.leaveTypeList.length != 0) {
+                        data.leaveTypeList.forEach(function (item) {
+                            valueArr.push(item.itemValue)
+                            typeItem.push(item.itemCode)
+                        })
+
+                        _this.pickerDevice = app.picker.create({
+                            inputEl: '#pickerType',
+                            toolbarCloseText: '确定',
+                            cols: [
+                                {
+                                    textAlign: 'center',
+                                    values: typeItem,
+                                    displayValues: valueArr
+                                }
+                            ],
+                            formatValue: function (values, displayValues) {
+                                return displayValues[0]
+                            },
+                            on: {
+                                open: function (picker) {
+
+                                    var htm = "<div class='dialog-backdrop backdrop-in picker-backdrop'></div>";
+                                    $$(picker.$el).css('z-index', '13500');
+                                    $$(picker.$el).parent().append(htm);
+                                    $$(picker.$el).parent().children('.picker-backdrop').click(function () {
+                                        picker.close()
+                                    })
+
+                                 },
+                                 close: function (picker) {
+                                     if ($$(picker.$el).parent().children('.picker-backdrop').length != 0) {
+                                         $$(picker.$el).parent().children('.picker-backdrop').removeClass('backdrop-in');
+                                         $$(picker.$el).parent().children('.picker-backdrop').remove();
+                                     };
+                                 },
+                                 closed:function (picker) {
+                                     if(picker.value[0]=='F'){ //丧假展示提示框
+                                         app.dialog.confirm('<div style="text-align: left;font-size:14px;line-height: 1.5">根据 <span style="color: #ff8400;">《考勤及休假管理规定》</span>，员工或配偶的父母、祖父母、外祖父母、子女、亲兄弟姐妹身亡，或员工的配偶身亡，员工可以申请丧假。</div>','',function () {},function () {
+                                             _this.$router.refreshPage()
+                                         })
+                                     }
+                                 },
+                                 change:function(picker, values, displayValues){
+                                     $$(picker.inputEl).attr('data-type',values[0]);
+
+                                    //婚假、病假、产假、陪产假、产检假、哺乳假显示附件
+                                    if (values[0] == 'M' || values[0] == 'S' || values[0] == 'T' || values[0] == 'P' || values[0] == 'R' || values[0] == 'W') {
+                                        switch (values[0]) {
+                                            case "M":
+                                                $$('#detail').text('请上传结婚照。');
+                                                break;
+                                            case 'S':
+                                                $$('#detail').text('三天及以上病假，请上传县级以上医院出具的病情说明；如果生病住院，请上传县级以上医院出具的病情证明和住院证明。');
+                                                break;
+                                            case 'T':
+                                                $$('#detail').text('请上传准生证。');
+                                                break;
+                                            case 'P':
+                                                $$('#detail').text('请上传准生证或出生证明。');
+                                                break;
+                                            case 'R':
+                                                $$('#detail').text('请上传产检证明，如发票。');
+                                                break;
+                                            default:
+                                                $$('#detail').text('请上传准生证或出生证明。');
+                                                break;
+                                        }
+                                        $$('#fileLoad').show()
+                                    } else {
+                                        $$('#fileLoad').hide()
+                                    }
+
+                                    //病假、年休假、调休假、事假显示请假原因
+                                    if (values[0] == 'S' || values[0] == 'N' || values[0] == 'V' || values[0] == 'L') {
+                                        $$('#leaveReason').show();
+                                        if (values[0] == 'S') {
+                                            $$('#patient').find('input[type=text]').val() == '其他' ? $$('#leaveReason').children().eq(2).show() : $$('#leaveReason').children().eq(2).hide();;
+                                        } else {
+                                            $$('#leaveReason').children().eq(0).find('input[type=text]').val() == '其他' ? $$('#leaveReason').children().eq(2).show() : $$('#leaveReason').children().eq(2).hide();;
+                                        }
+                                    } else {
+                                        $$('#leaveReason').hide()
+                                    }
+
+                                    //婚假
+                                    values[0] == 'M' ? $$('#marryList').show() : $$('#marryList').hide();
+
+                                    //年假
+                                    values[0] == 'N' ? $$('#leaveYear').show() : $$('#leaveYear').hide()
+
+                                    //病假
+                                    values[0] == 'S' ? $$('#patient').show() : $$('#patient').hide();
+                                    values[0] == 'S' ? $$('#patient').prev().hide() : $$('#patient').prev().show();
+
+                                     //产假
+                                     values[0]=='T'?$$('#productList').show():$$('#productList').hide();
+
+                                     //丧假
+//                                     values[0]=='F'?$$('#passList').show():$$('#passList').hide();
+
+                                    //哺乳假
+                                    values[0] == 'W' ? $$('#babyList').show() : $$('#babyList').hide()
+                                }
+                            }
+                        });
+                    }
+                });
+
+                //结婚日期
+                _this.pickerMarryDate = pickerDate('#marryDate', 'yymmdd');
+
+                //新生儿出生日期
+                _this.pickerBothDate = pickerDate('#bothDate', 'yymmdd');
+
+                // 开始结束时间
+                if(query.exceptStartTime=='null'||query.exceptStartTime==''){
+                    _this.pickerDate01 = pickerDate('#pickerStart', 'yymmdd hhmm:ss');
+                }else{
+                    _this.pickerDate01 = pickerDate('#pickerStart', 'yymmdd hhmm:ss',query.date+' '+query.exceptStartTime);
+                }
+                if(query.exceptEndTime=='null'||query.exceptEndTime==''){
+                    _this.pickerDate02 = pickerDate('#pickerEnd', 'yymmdd hhmm:ss');
+                }else{
+                    _this.pickerDate02 = pickerDate('#pickerEnd', 'yymmdd hhmm:ss',query.date+' '+query.exceptEndTime);
+                }
+
+                // 家庭地址
+                _this.familyPicker = pickerLocation('#familyAdress');
+
+                // 销假
+                if (query.type == "xj") {
+                    _this.pageXj = query;
+                    $$('#pickerType').val(query.leaveName).attr('data-type', query.leaveType).attr('disabled', true)
+                }
+
+                //请假原因
+                iflyRequest({
+                    "userAccount": sessionStorage.getItem('userAccount'),
+                    "token": sessionStorage.getItem('token'),
+                    "methodCode": "B100010044"
+                }, function (data) {
+
+                    if (!data.result || (data.result == "false" && data.result)) {
+                        app.dialog.alert(data.message);
+                        return
+                    }
+                    var idArr = [], valArr = [], idArrPa = [], valArrPa = [];
+
+                    data.content.forEach(function (item) {
+                        if (item.LEAVERESONCODE == '01' || item.LEAVERESONCODE == '02') {
+                            idArrPa.push(item.LEAVERESONCODE);
+                            valArrPa.push(item.LEAVERESONNAME)
+                        } else {
+                            idArr.push(item.LEAVERESONCODE);
+                            valArr.push(item.LEAVERESONNAME);
+                        }
+                        if (item.LEAVERESONCODE == '12') {
+                            idArrPa.push(item.LEAVERESONCODE);
+                            valArrPa.push(item.LEAVERESONNAME)
+                        }
+                    })
+                    _this.pickerReason = app.picker.create({
+                        inputEl: '#pickerReason',
+                        toolbarCloseText: '确定',
+                        cols: [
+                            {
+                                textAlign: 'center',
+                                values: idArr,
+                                displayValues: valArr
+                            }
+                        ],
+                        formatValue: function (values, displayValues) {
+                            return displayValues[0]
+                        },
+                        on: {
+                            open: function (picker) {
+
+                                var htm = "<div class='dialog-backdrop backdrop-in picker-backdrop'></div>";
+                                $$(picker.$el).css('z-index', '13500');
+                                $$(picker.$el).parent().append(htm);
+                                $$(picker.$el).parent().children('.picker-backdrop').click(function () {
+                                    picker.close()
+                                })
+
+                            },
+                            close: function (picker) {
+                                if ($$(picker.$el).parent().children('.picker-backdrop').length != 0) {
+                                    $$(picker.$el).parent().children('.picker-backdrop').removeClass('backdrop-in');
+                                    $$(picker.$el).parent().children('.picker-backdrop').remove();
+                                };
+                            },
+                            change: function (picker, values, displayValues) {
+                                $$(picker.inputEl).attr('data-type', values[0]);
+                                values[0] == '12' ? $$('#leaveReason').children('li').eq(2).show() : $$('#leaveReason').children('li').eq(2).hide()
+                            }
+                        }
+                    });
+
+                    //生病请假原因
+                    _this.pickerPatient = app.picker.create({
+                        inputEl: '#patientObj',
+                        toolbarCloseText: '确定',
+                        cols: [
+                            {
+                                textAlign: 'center',
+                                values: idArrPa,
+                                displayValues: valArrPa
+                            }
+                        ],
+                        formatValue: function (values, displayValues) {
+                            return displayValues[0]
+                        },
+                        on: {
+                            open: function (picker) {
+
+                                var htm = "<div class='dialog-backdrop backdrop-in picker-backdrop'></div>";
+                                $$(picker.$el).css('z-index', '13500');
+                                $$(picker.$el).parent().append(htm);
+                                $$(picker.$el).parent().children('.picker-backdrop').click(function () {
+                                    picker.close()
+                                })
+
+                            },
+                            close: function (picker) {
+                                if ($$(picker.$el).parent().children('.picker-backdrop').length != 0) {
+                                    $$(picker.$el).parent().children('.picker-backdrop').removeClass('backdrop-in');
+                                    $$(picker.$el).parent().children('.picker-backdrop').remove();
+                                };
+                            },
+                            change: function (picker, values, displayValues) {
+                                $$(picker.inputEl).attr('data-type', values[0])
+                                values[0] == '12' ? $$('#leaveReason').children('li').eq(2).show() : $$('#leaveReason').children('li').eq(2).hide()
+                            }
+                        }
+                    });
+                })
+
+                //过世对象
+//                _this.pickerPass = app.picker.create({
+//                    inputEl: '#passName',
+//                    toolbarCloseText:'确定',
+//                    formatValue: function(values, displayValues) {
+//                        return displayValues[0];
+//                    },
+//                    cols: [
+//                        {
+//                            textAlign: 'center',
+//                            displayValues:['父亲','母亲','配偶','儿子','女儿'],
+//                            values:['01','02','03','04','05']
+//                        }
+//                    ],
+//                    on:{
+//                        open:function (picker) {
+//
+//                            var htm="<div class='dialog-backdrop backdrop-in picker-backdrop'></div>";
+//                            $$(picker.$el).css('z-index','13500');
+//                            $$(picker.$el).parent().append(htm);
+//                            $$(picker.$el).parent().children('.picker-backdrop').click(function () {
+//                                picker.close()
+//                            })
+//
+//                        },
+//                        close:function (picker) {
+//                            if($$(picker.$el).parent().children('.picker-backdrop').length!=0){
+//                                $$(picker.$el).parent().children('.picker-backdrop').removeClass('backdrop-in');
+//                                $$(picker.$el).parent().children('.picker-backdrop').remove();
+//                            };
+//                        },
+//                        change:function (picker,values,displayvalues) {
+//                            $$(picker.inputEl).attr('data-type',values[0]);
+//                        }
+//                    }
+//                });
+
+                //年休假剩余天数
+                iflyRequest({
+                    "userAccount": sessionStorage.getItem('userAccount'),
+                    "token": sessionStorage.getItem('token'),
+                    "methodCode": "B100060013",
+                    "emplid": sessionStorage.getItem('userCode')
+                }, function (data) {
+                    if (data.result && data.result != "false") {
+                        data.content==null?$$('#leaveYear').children('span').html("--"):$$('#leaveYear').children('span').html(data.content.LEAVED)
+                    } else {
+                        app.dialog.alert(data.message)
+                    }
+                })
+
+                //附件上传
+                var fileInput = document.getElementById("fileInput"), fileList, _this = this;
+                fileInput.onchange = function (event) {
+                    fileList = fileInput.files;
+                    if ($$('.file-imgs').children('.col-25').length - 1 + fileList.length > 9) {
+                        app.dialog.alert('最多可上传9张图片');
+                        return
+                    }
+                    for (var i = 0; i < fileList.length; i++) {
+                        (function () {
+                            var file = fileList[i],
+                                imgName = fileList[i].name;
+
+                            // 选择的文件是图片
+                            if (file.type.indexOf("image") == 0) {
+
+                                var reader = new FileReader(), img = new Image();
+
+                                // 文件base64化，以便获知图片原始尺寸
+                                reader.onload = function (e) {
+                                    img.src = e.target.result;
+                                };
+
+                                // base64地址图片加载完毕后
+                                img.onload = function (e) {
+
+                                    var canvas = document.createElement('canvas');
+                                    var context = canvas.getContext('2d');
+
+                                    // 图片原始尺寸
+                                    var originWidth = this.width;
+                                    var originHeight = this.height;
+                                    // 最大尺寸限制
+                                    var maxWidth = 600, maxHeight = 600;
+                                    // 目标尺寸
+                                    var targetWidth = originWidth, targetHeight = originHeight;
+                                    // 图片尺寸超过400x400的限制
+                                    if (originWidth > maxWidth || originHeight > maxHeight) {
+                                        if (originWidth / originHeight > maxWidth / maxHeight) {
+                                            // 更宽，按照宽度限定尺寸
+                                            targetWidth = maxWidth;
+                                            targetHeight = Math.round(maxWidth * (originHeight / originWidth));
+                                        } else {
+                                            targetHeight = maxHeight;
+                                            targetWidth = Math.round(maxHeight * (originWidth / originHeight));
+                                        }
+                                    }
+
+                                    // canvas对图片进行缩放
+                                    canvas.width = targetWidth;
+                                    canvas.height = targetHeight;
+                                    // 清除画布
+                                    context.clearRect(0, 0, targetWidth, targetHeight);
+                                    // 图片压缩
+                                    context.drawImage(img, 0, 0, targetWidth, targetHeight);
+                                    // canvas转为blob并上传
+                                    canvas.toBlob(function (blob) {
+                                        console.log(blob);
+                                        _this.submitFile(blob, imgName);
+                                    }, file.type || 'image/png');
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        })(i);
+
+                    }
+                }
+
+            },
+            pageBeforeRemove: function (e, page) {
+
+                app.picker.destroy(this.pickerDate01)
+                app.picker.destroy(this.pickerDate02)
+                app.picker.destroy(this.pickerDevice)
+                app.picker.destroy(this.pickerMarryDate)
+                app.picker.destroy(this.pickerBothDate)
+                app.picker.destroy(this.pickerReason)
+                app.picker.destroy(this.pickerPatient)
+                app.picker.destroy(this.pickerPass)
+
+                if (page.direction == 'backward') {
+                    showTabBarJS(true);
+                }
+            }
+        }
+    }
+</script>

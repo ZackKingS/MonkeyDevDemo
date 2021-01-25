@@ -1,0 +1,64 @@
+<div data-page="normalDetail" class="page navbar-fixed ifly-bg-white">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="#" class="link icon-only back">
+					<i class="icon icon-back"></i>
+				</a>
+			</div>
+			<div class="center"></div>
+		</div>
+	</div>
+	<div class="page-content" id="detailCont">
+		<div class="ifly-tc">
+			<div class="preloader"></div>
+		</div>
+	</div>
+	<script type="text/template7" id="informationDetail">
+
+			<div class="ifly-section-head">
+				<h1>{{newsTitle}}</h1>
+				<p>
+					{{#js_compare "this.publicAuthor!=null"}}
+					<span>{{publicAuthor}}</span>
+					{{/js_compare}}
+					<span>{{publicTime}}</span>
+				</p>
+			</div>
+			<div class="ifly-detail-cont">
+				{{#js_compare "this.detailType=='2'"}}
+					<!--<div id="container">-->
+						<!--<video id="my-video" class="video-js" controls preload="auto" width="100%" data-setup="{}">-->
+						    <!--<source src="{{vedioUrl}}" type='video/mp4'>-->
+						    <!--<p class="vjs-no-js">-->
+						      <!--To view this video please enable JavaScript, and consider upgrading to a web browser that-->
+						      <!--<a href="#">supports HTML5 video</a>-->
+						    <!--</p>-->
+						 <!--</video>-->
+						<video src="{{vedioUrl}}" id="videoContainer"></video>
+					<!--</div>-->
+				{{/js_compare}}
+
+				<!-- {{#js_compare "this.detailType== '4'"}}
+					<iframe src="{{hrefUrl}}" frameborder="0" width="100%" height="100%"></iframe>
+				{{/js_compare}} -->
+
+				{{#js_compare "this.newsContents!=null"}}
+					{{newsContents}}
+				{{/js_compare}}				
+			</div>
+			
+			<p class="ifly-detail-bot">
+				<span><i class="icon icon-eye"></i>&nbsp;{{pageViews}}</span>&nbsp;&nbsp;
+				
+				{{#js_compare "this.hasUpvote=='true'"}}
+				<span class="ifly-orange upvote" data-id="{{newsId}}"><i class="icon icon-thumb"></i>&nbsp;{{upvote}}</span>
+				{{else}}
+				<span class="upvote" data-id="{{newsId}}"><i class="icon icon-thumbmark"></i>&nbsp;<font>{{upvote}}</font></span>
+				{{/js_compare}}
+				
+			</p>
+
+			
+	</script>
+</div>

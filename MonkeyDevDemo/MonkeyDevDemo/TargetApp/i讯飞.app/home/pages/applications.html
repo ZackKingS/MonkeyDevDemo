@@ -1,0 +1,91 @@
+<div data-page="applications" class="page navbar-fixed">
+	<div class="navbar">
+	    <div class="navbar-inner">
+	        <div class="left">
+	            <a href="#" class="link icon-only back">
+	                <i class="icon icon-back"></i>
+	            </a>
+	        </div>
+	        <div class="center">应用中心</div>
+	        <div class="right">
+	            <a href="#" class="link" id="edit">编辑</a>
+	        </div>
+	    </div>
+	</div> 
+	<div class="page-content" id="aplicationWap">
+
+		<div class="ifly-tc col-100"><div class="preloader"></div></div>
+
+		<!-- 应用 -->
+		<script type="text/template7" id="apps">
+			<div class="ifly-section">
+				<h2 class="ifly-title"><span>我的应用</span></h2>
+				<div class="row no-gutter" id="myAppWap">
+					
+					<div class="col-25 ifly-det ifly-leave">
+						<a data-appLoad="0" href="#">
+		                    <img src="img/sectionIcon/iflyui-icon-checkon.png" alt="">
+							<p>考勤</p>
+						</a>
+					</div>
+
+					{{#each this.myApps}}
+					<div class="col-25 ifly-det">
+						<a data-url="{{appUrl}}" {{#js_compare "this.appChildMenu!=null"}}data-children='{{stringCh appChildMenu}}'{{/js_compare}} data-appId="{{appId}}"  data-appLoad="{{appLoadType}}" data-appStatus="{{appStatusColor}}" data-child="{{childMenu}}" href="#">
+		                    <img src="{{appIcon}}" alt="">
+							<p>{{appName}}</p>
+						</a>
+					</div>
+		 			{{/each}}
+		 		</div>
+	 		</div>
+            <div class="ifly-applications">
+                <div class="ifly-section" id="newAppWap">
+                    <h2 class="ifly-title"><span>最新应用</span></h2>
+                    <div class="row no-gutter">
+                        {{#each this.newApps}}
+                        <div class="col-25 {{appOpt ../../myApps}}">
+                            <a data-url="{{appUrl}}" {{#js_compare "this.appChildMenu!=null"}}data-children='{{stringCh appChildMenu}}'{{/js_compare}} data-appId="{{appId}}"  data-appLoad="{{appLoadType}}" data-appStatus="{{appStatusColor}}" data-child="{{childMenu}}" href="#">
+                                <img src="{{appIcon}}" alt="">
+                                <p>{{appName}}</p>
+                            </a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="ifly-section" id="allAppWap">
+                    <h2 class="ifly-title"><span>全部应用</span></h2>
+                    <div class="row no-gutter">
+                        {{#each this.allApps}}
+                        {{#each this.typeApps}}
+                        <div class="col-25 {{appOpt ../../myApps}}">
+                            <a data-url="{{appUrl}}" {{#js_compare "this.appChildMenu!=null"}}data-children='{{stringCh appChildMenu}}'{{/js_compare}} data-appId="{{appId}}"  data-appLoad="{{appLoadType}}" data-appStatus="{{appStatusColor}}" data-child="{{childMenu}}" href="#">
+                                <img src="{{appIcon}}" alt="">
+                                <p>{{appName}}</p>
+                            </a>
+                        </div>
+                        {{/each}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+		</script>
+
+		<!-- 移动HR -->
+		<script type="text/template7" id="moveHr">
+			<div class="ifly-section">
+				<div class="row no-gutter">
+				{{#each this}}
+				<div class="col-33">
+                  	<a href="#" data-url="{{url}}">
+                    	<img src="{{imgUrl}}" alt="">
+                    	<p>{{name}}</p>
+                  	</a>
+				</div>
+				{{/each}}
+				</div>
+			</div>
+        </script>
+
+	</div>
+</div>

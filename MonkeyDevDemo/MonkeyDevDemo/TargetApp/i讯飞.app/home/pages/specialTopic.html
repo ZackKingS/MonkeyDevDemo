@@ -1,0 +1,90 @@
+<div data-page="specialTopic" class="page navbar-fixed ifly-bg-white">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="#" class="link icon-only back">
+					<i class="icon icon-back"></i>
+				</a>
+			</div>
+			<div class="center"></div>
+		</div> 
+	</div>
+	<div class="page-content infinite-scroll infinite-scroll-subject pull-to-refresh-content pull-to-refresh-content-subject">
+
+		<!-- Default pull to refresh layer-->
+	    <div class="pull-to-refresh-layer">
+	      <div class="preloader"></div>
+	      <div class="pull-to-refresh-arrow"></div>
+	    </div>
+		
+		<div class="ifly-section-head ifly-section-digest" id="headWap"></div>
+
+		<div class="list-block media-list ifly-headlines-list ifly-subject-list">
+			<ul id="subjectList">
+				<img data-src="img/ifly-occupy.png" class="lazy" hidden alt="">
+			</ul>
+		</div>
+
+		<!-- Preloader -->
+		<div class="infinite-scroll-preloader infinite-scroll-preloader-subject">
+		    <div class="preloader"></div>
+		</div>
+	</div>
+
+	<!-- list -->
+	<script type="text/template7" id="headItem">
+		<h1>{{subjectTitle}}</h1>
+		<p class="digest"><span class="ifly-tip">摘要</span>{{subjectDigest}}</p>
+	</script>
+    <script type="text/template7" id="subjectItem">
+		{{#each this}}
+		<li><a href="#" onclick="inforGoTo('{{this.hasSubject}}','{{this.newsType}}','{{this.newsId}}')" class="item-content iten-link">
+			<div class="item-inner">
+				<div class="item-title-row">
+					<div class="item-title">{{newsTitle}}</div>
+				</div>
+
+				<!-- 多图模式 -->
+				{{#js_compare "this.newsType=='2'"}}
+   				<div class="row no-gutter ifly-three-row">
+					<div class="col-33"><span><img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt=""></span></div>
+					<div class="col-33"><span><img data-src="{{newsImg[1].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt=""></span></div>
+					<div class="col-33"><span><img data-src="{{newsImg[2].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt=""></span></div>
+				</div>
+				{{/js_compare}}
+                        
+				<!-- 图文图集 -->
+				{{#js_compare "this.newsType=='3'"}}
+				<div class="ifly-photos">
+					<img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt="">
+					<span class="count">{{imgsCount}}</span>
+				</div>
+				{{/js_compare}}
+                        
+				<!-- 视频 -->
+				{{#js_compare "this.newsType=='4'"}}
+				<div class="ifly-video">
+					<img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt="">
+					<span class="play"></span>
+				</div>
+				{{/js_compare}}
+
+				<div class="item-subtitle {{#js_compare "this.newsType=='1'"}}item-subtitle-po{{/js_compare}}">
+					{{#if this.hasStick}}<span class="ifly-blue">置顶</span>&nbsp;&nbsp;{{/if}}
+					<span><i class="icon icon-eye"></i>&nbsp;{{pageViews}}</span>&nbsp;&nbsp;
+					<span class="upvote"><i class="icon icon-thumbmark"></i>&nbsp;<font>{{upvote}}</font></span>       
+					<span class="ifly-fr">{{publicDate}}</span>
+				</div>
+
+			</div>
+
+			<!-- 一图模式 -->
+            {{#js_compare "this.newsType=='1'"}}
+            <div class="item-media info-head"><img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" /></div>
+            {{/js_compare}}
+            
+		</a></li>
+		{{/each}}
+
+    </script>
+</div>

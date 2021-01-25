@@ -1,0 +1,430 @@
+[
+    {
+        "gifName": "微笑",
+        "gifId": "emoji_00"
+    },
+    {
+        "gifName": "撇嘴",
+        "gifId": "emoji_01"
+    },
+    {
+        "gifName": "色",
+        "gifId": "emoji_02"
+    },
+    {
+        "gifName": "发呆",
+        "gifId": "emoji_03"
+    },
+    {
+        "gifName": "得意",
+        "gifId": "emoji_04"
+    },
+    {
+        "gifName": "流泪",
+        "gifId": "emoji_05"
+    },
+    {
+        "gifName": "害羞",
+        "gifId": "emoji_06"
+    },
+    {
+        "gifName": "闭嘴",
+        "gifId": "emoji_07"
+    },
+    {
+        "gifName": "睡",
+        "gifId": "emoji_08"
+    },
+    {
+        "gifName": "大哭",
+        "gifId": "emoji_09"
+    },
+    {
+        "gifName": "尴尬",
+        "gifId": "emoji_10"
+    },
+    {
+        "gifName": "发怒",
+        "gifId": "emoji_11"
+    },
+    {
+        "gifName": "调皮",
+        "gifId": "emoji_12"
+    },
+    {
+        "gifName": "龇牙",
+        "gifId": "emoji_13"
+    },
+    {
+        "gifName": "惊讶",
+        "gifId": "emoji_14"
+    },
+    {
+        "gifName": "难过",
+        "gifId": "emoji_15"
+    },
+    {
+        "gifName": "囧",
+        "gifId": "emoji_16"
+    },
+    {
+        "gifName": "抓狂",
+        "gifId": "emoji_17"
+    },
+    {
+        "gifName": "吐",
+        "gifId": "emoji_18"
+    },
+    {
+        "gifName": "偷笑",
+        "gifId": "emoji_19"
+    },
+    {
+        "gifName": "愉快",
+        "gifId": "emoji_20"
+    },
+    {
+        "gifName": "白眼",
+        "gifId": "emoji_21"
+    },
+    {
+        "gifName": "傲慢",
+        "gifId": "emoji_22"
+    },
+    {
+        "gifName": "困",
+        "gifId": "emoji_23"
+    },
+    {
+        "gifName": "惊恐",
+        "gifId": "emoji_24"
+    },
+    {
+        "gifName": "流汗",
+        "gifId": "emoji_25"
+    },
+    {
+        "gifName": "憨笑",
+        "gifId": "emoji_26"
+    },
+    {
+        "gifName": "悠闲",
+        "gifId": "emoji_27"
+    },
+    {
+        "gifName": "奋斗",
+        "gifId": "emoji_28"
+    },
+    {
+        "gifName": "咒骂",
+        "gifId": "emoji_29"
+    },
+    {
+        "gifName": "疑问",
+        "gifId": "emoji_30"
+    },
+    {
+        "gifName": "嘘",
+        "gifId": "emoji_31"
+    },
+    {
+        "gifName": "晕",
+        "gifId": "emoji_32"
+    },
+    {
+        "gifName": "衰",
+        "gifId": "emoji_33"
+    },
+    {
+        "gifName": "骷髅",
+        "gifId": "emoji_34"
+    },
+    {
+        "gifName": "敲打",
+        "gifId": "emoji_35"
+    },
+    {
+        "gifName": "再见",
+        "gifId": "emoji_36"
+    },
+    {
+        "gifName": "擦汗",
+        "gifId": "emoji_37"
+    },
+    {
+        "gifName": "抠鼻",
+        "gifId": "emoji_38"
+    },
+    {
+        "gifName": "鼓掌",
+        "gifId": "emoji_39"
+    },
+    {
+        "gifName": "坏笑",
+        "gifId": "emoji_40"
+    },
+    {
+        "gifName": "左哼哼",
+        "gifId": "emoji_41"
+    },
+    {
+        "gifName": "右哼哼",
+        "gifId": "emoji_42"
+    },
+    {
+        "gifName": "哈欠",
+        "gifId": "emoji_43"
+    },
+    {
+        "gifName": "鄙视",
+        "gifId": "emoji_44"
+    },
+    {
+        "gifName": "委屈",
+        "gifId": "emoji_45"
+    },
+    {
+        "gifName": "快哭",
+        "gifId": "emoji_46"
+    },
+    {
+        "gifName": "阴险",
+        "gifId": "emoji_47"
+    },
+    {
+        "gifName": "亲亲",
+        "gifId": "emoji_48"
+    },
+    {
+        "gifName": "可怜",
+        "gifId": "emoji_49"
+    },
+    {
+        "gifName": "菜刀",
+        "gifId": "emoji_50"
+    },
+    {
+        "gifName": "西瓜",
+        "gifId": "emoji_51"
+    },
+    {
+        "gifName": "啤酒",
+        "gifId": "emoji_52"
+    },
+    {
+        "gifName": "咖啡",
+        "gifId": "emoji_53"
+    },
+    {
+        "gifName": "猪头",
+        "gifId": "emoji_54"
+    },
+    {
+        "gifName": "玫瑰",
+        "gifId": "emoji_55"
+    },
+    {
+        "gifName": "凋谢",
+        "gifId": "emoji_56"
+    },
+    {
+        "gifName": "嘴唇",
+        "gifId": "emoji_57"
+    },
+    {
+        "gifName": "爱心",
+        "gifId": "emoji_58"
+    },
+    {
+        "gifName": "心碎",
+        "gifId": "emoji_59"
+    },
+    {
+        "gifName": "蛋糕",
+        "gifId": "emoji_60"
+    },
+    {
+        "gifName": "炸弹",
+        "gifId": "emoji_61"
+    },
+    {
+        "gifName": "便便",
+        "gifId": "emoji_62"
+    },
+    {
+        "gifName": "月亮",
+        "gifId": "emoji_63"
+    },
+    {
+        "gifName": "太阳",
+        "gifId": "emoji_64"
+    },
+    {
+        "gifName": "拥抱",
+        "gifId": "emoji_65"
+    },
+    {
+        "gifName": "强",
+        "gifId": "emoji_66"
+    },
+    {
+        "gifName": "弱",
+        "gifId": "emoji_67"
+    },
+    {
+        "gifName": "握手",
+        "gifId": "emoji_68"
+    },
+    {
+        "gifName": "胜利",
+        "gifId": "emoji_69"
+    },
+    {
+        "gifName": "抱拳",
+        "gifId": "emoji_70"
+    },
+    {
+        "gifName": "勾引",
+        "gifId": "emoji_71"
+    },
+    {
+        "gifName": "拳头",
+        "gifId": "emoji_72"
+    },
+    {
+        "gifName": "OK",
+        "gifId": "emoji_73"
+    },
+    {
+        "gifName": "笑脸",
+        "gifId": "emoji_78"
+    },
+    {
+        "gifName": "生病",
+        "gifId": "emoji_79"
+    },
+    {
+        "gifName": "破涕为笑",
+        "gifId": "emoji_80"
+    },
+    {
+        "gifName": "吐舌",
+        "gifId": "emoji_81"
+    },
+    {
+        "gifName": "脸红",
+        "gifId": "emoji_82"
+    },
+    {
+        "gifName": "恐惧",
+        "gifId": "emoji_83"
+    },
+    {
+        "gifName": "失望",
+        "gifId": "emoji_84"
+    },
+    {
+        "gifName": "无语",
+        "gifId": "emoji_85"
+    },
+    {
+        "gifName": "嘿哈",
+        "gifId": "emoji_86"
+    },
+    {
+        "gifName": "捂脸",
+        "gifId": "emoji_87"
+    },
+    {
+        "gifName": "奸笑",
+        "gifId": "emoji_88"
+    },
+    {
+        "gifName": "机智",
+        "gifId": "emoji_89"
+    },
+    {
+        "gifName": "皱眉",
+        "gifId": "emoji_90"
+    },
+    {
+        "gifName": "耶",
+        "gifId": "emoji_91"
+    },
+    {
+        "gifName": "吃瓜",
+        "gifId": "emoji_100"
+    },
+    {
+        "gifName": "加油",
+        "gifId": "emoji_101"
+    },
+    {
+        "gifName": "汗",
+        "gifId": "emoji_102"
+    },
+    {
+        "gifName": "天啊",
+        "gifId": "emoji_103"
+    },
+    {
+        "gifName": "Emm",
+        "gifId": "emoji_104"
+    },
+    {
+        "gifName": "社会社会",
+        "gifId": "emoji_105"
+    },
+    {
+        "gifName": "旺柴",
+        "gifId": "emoji_106"
+    },
+    {
+        "gifName": "好的",
+        "gifId": "emoji_107"
+    },
+    {
+        "gifName": "打脸",
+        "gifId": "emoji_108"
+    },
+    {
+        "gifName": "加油加油",
+        "gifId": "emoji_109"
+    },
+    {
+        "gifName": "哇",
+        "gifId": "emoji_110"
+    },
+    {
+        "gifName": "鬼魂",
+        "gifId": "emoji_92"
+    },
+    {
+        "gifName": "祈祷",
+        "gifId": "emoji_93"
+    },
+    {
+        "gifName": "强壮",
+        "gifId": "emoji_94"
+    },
+    {
+        "gifName": "庆祝",
+        "gifId": "emoji_95"
+    },
+    {
+        "gifName": "礼物",
+        "gifId": "emoji_96"
+    },
+    {
+        "gifName": "红包",
+        "gifId": "emoji_97"
+    },
+    {
+        "gifName": "发财",
+        "gifId": "emoji_98"
+    },
+    {
+        "gifName": "福",
+        "gifId": "emoji_99"
+    }
+]

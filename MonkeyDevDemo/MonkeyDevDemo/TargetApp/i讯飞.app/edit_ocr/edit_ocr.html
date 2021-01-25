@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>核对名片信息</title>
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="lib/mint-ui/style.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="page navbar-fixed">
+    <div class="navbar navbar-fixed">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="javascript:void(0)" class="link icon-only" onclick="backAction()">
+                    <i class="icon ifly-back"></i>
+                </a>
+            </div>
+            <div class="center">核对名片信息</div>
+            <div class="right">
+                <a href="javascript:void(0)" class="link" onclick="saveAction()">保存</a>
+            </div>
+        </div>
+    </div>
+    <div id="app" class="page-content infinite-scroll">
+        <!--图片-->
+        <div class="check-info-banner">
+            <img :src="imgUrl" alt="">
+        </div>
+
+        <div class="check-info-line"></div>
+
+        <!--保存到通讯录-->
+        <div :class="{ 'address-list-hide':false}">
+            <div class="check-info-save1">
+                <p>保存该名片到本地通讯录</p>
+                <!-- Toggle element -->
+                <mt-switch v-model="isChecked"></mt-switch>
+            </div>
+            <div class="check-info-line"></div>
+        </div>
+
+        <!--姓名-->
+        <div class="check-info-name">
+            <span class="contact-name"></span>
+            <input type="text" placeholder="请输入姓名" v-model="name" id="name" maxlength="50"/>
+        </div>
+        <div class="check-info-line"></div>
+
+        <!--电话-->
+        <div class="check-info">
+            <div v-for="(value, index) in phones" class="check-info-added" :key="index">
+                <span class="contact-phone"></span>
+                <p><input type="number" maxlength="50" placeholder="电话" v-model="phones[index]" class="add-info-input" oninput = "value=value.replace(/[^\d]/g,'')"></p>
+                <div class="remove"></div>
+                <div class="remove-info" @click="removePhone(index)"></div>
+                <div class="line"></div>
+            </div>
+            <div class="line"></div>
+            <div class="check-info-add">
+                <div class="add-text">添加电话</div>
+                <div class="add"></div>
+                <div class="add-info-action" @click="addPhone"></div>
+            </div>
+        </div>
+
+        <div class="check-info-line"></div>
+        <!--邮箱-->
+        <div class="check-info">
+            <div v-for="(value, index) in emails" class="check-info-added" :key="index">
+                <span class="contact-email"></span>
+                <p><input type="text" maxlength="50" placeholder="邮箱" v-model="emails[index]" class="add-info-input"></p>
+                <div class="remove"></div>
+                <div class="remove-info" @click="removeEmail(index)"></div>
+                <div class="line"></div>
+            </div>
+            <div class="line"></div>
+            <div class="check-info-add">
+                <div class="add-text">添加邮箱</div>
+                <div class="add"></div>
+                <div class="add-info-action" @click="addEmail"></div>
+            </div>
+        </div>
+        <div class="check-info-line"></div>
+        <!--公司、部门、职位-->
+        <div class="check-info">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div v-for="(data, index) in companyInfo" class="check-info-company" :key="index">
+                <div class="check-info-company-detail">
+                    <span class="contact-company"></span>
+                    <p><input type="text" maxlength="50" placeholder="公司" v-model="companyInfo[index].company" class="add-info-input"></p>
+                    <div class="remove-company-info"></div>
+                    <div class="remove-info" @click="removeCompanyInfo(index)"></div>
+                </div>
+                <div class="line"></div>
+                <p><input type="text" maxlength="50" placeholder="部门" v-model="companyInfo[index].department" class="add-info-input"></p>
+                <div class="line"></div>
+                <p><input type="text" maxlength="50" placeholder="职位" v-model="companyInfo[index].position" class="add-info-input"></p>
+            </div>
+            <div class="line"></div>
+            <div class="check-info-add">
+                <div class="add-text">点击添加公司、部门、职位</div>
+                <div class="add"></div>
+                <div class="add-info-action" @click="addCompanyInfo"></div>
+            </div>
+        </div>
+        <div class="check-info-line"></div>
+        <!--地址-->
+        <div class="check-info">
+            <div class="line"></div>
+            <div v-for="(value, index) in addressInfo" class="check-info-address" :key="index">
+                <span class="contact-address"></span>
+                <p><input type="text" placeholder="地址" maxlength="300" v-model="addressInfo[index]" class="add-info-input"></p>
+                <div class="remove-address-info"></div>
+                <div class="remove-info" @click="removeAddress(index)"></div>
+                <div class="line"></div>
+            </div>
+            <div class="check-info-add">
+                <div class="add-text">添加地址</div>
+                <div class="add"></div>
+                <div class="add-info-action" @click="addAddress"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="js/vue.min.js"></script>
+<script src="lib/mint-ui/index.js"></script>
+<script src="lib/plugins/jquery.min.js"></script>
+<script src="lib/plugins/aes.js"></script>
+<script src="lib/plugins/mode-ecb.js"></script>
+
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        imgUrl: '',
+        isChecked: true,
+        name: '',
+        phones: [],
+        emails: [],
+        companyInfo: [],
+        addressInfo: [],
+        isClick: true,
+        userInfo: {},
+      }
+    },
+    methods:{
+      // 添加手机号
+      addPhone() {
+        this.phones.push("");
+      },
+      // 删除手机号
+      removePhone(index) {
+        this.phones.splice(index, 1);
+      },
+      // 添加email
+      addEmail() {
+        this.emails.push("");
+      },
+      // 删除email
+      removeEmail(index) {
+        this.emails.splice(index, 1);
+      },
+      // 添加公司信息
+      addCompanyInfo() {
+        this.companyInfo.push({company: "", department: "", position: ""});
+      },
+      // 删除公司信息
+      removeCompanyInfo(index) {
+        this.companyInfo.splice(index, 1);
+      },
+      // 添加地址
+      addAddress() {
+        this.addressInfo.push("");
+      },
+      // 删除地址
+      removeAddress(index) {
+        this.addressInfo.splice(index, 1);
+      },
+      // 保存到通讯录
+      saveToAddressBook(name, phonesStr) {
+        let info = {
+          name: name,
+          phones: phonesStr
+        };
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+          window.webkit.messageHandlers.saveToAddressBookAction.postMessage(info);
+        } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+          iflyapp.saveToAddressBookAction(info.name, info.phones);
+        }
+      },
+      //  保存名片信息
+      saveInfoAction() {
+        const _this = this;
+        if (this.isClick) {
+          this.isClick = false;
+          if (this.name.trim()==='' || this.name === undefined) {
+            this.$toast({
+              message: '请输入姓名',
+              duration: 1800
+            });
+            this.isClick = true;
+            return;
+          }
+          let phonesArr = this.phones.filter(function (s) {
+            return s && s.trim();
+          });
+          let emailsArr = this.emails.filter(function (s) {
+            return s && s.trim();
+          });
+          let companyInfosArray = this.companyInfo.filter(function (item) {
+            if ((item.company === null && item.department === null && item.position === null) || (item.company === '' && item.department === '' && item.position === '')|| (item.company === undefined && item.department === undefined && item.position === undefined)) {
+              return false
+            } else {
+              return true
+            }
+          });
+          let addressArray = this.addressInfo.filter(function (s) {
+            return s && s.trim();
+          });
+          if (emailsArr.length) {
+            let isLegal = true
+            let emailReg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            emailsArr.forEach(function (item, index) {
+              if (!emailReg.test(item)) {
+                isLegal = false;
+              }
+            })
+            if (!isLegal) {
+              this.$toast({
+                message: '邮箱格式有误',
+                duration: 1800
+              });
+              this.isClick = true;
+              return;
+            }
+          }
+          let cardId = '';
+          let cardInfo = {
+            methodCode: 'B100100002',
+            userAccount: this.userInfo.userAccount,
+            token: this.userInfo.token,
+            param: {
+              userAccount: this.userInfo.userAccount,
+              token: this.userInfo.token,
+              cardId: cardId,
+              imgUrl: this.imgUrl,
+              name: this.name,
+              phone: phonesArr.join(','),
+              email: emailsArr.join(','),
+              companyInfo: companyInfosArray,
+              address: addressArray.join('&'),
+            },
+          }
+          this.$indicator.open();
+          this.iflyRequest(cardInfo, function (data) {
+            _this.$indicator.close();
+            if (_this.isChecked) {
+              // 保存至通讯录
+              _this.saveToAddressBook(_this.name, phonesArr.length>0?phonesArr.join(','):"");
+            }
+            if (data.result) {
+              _this.$toast({
+                message: '保存成功',
+                duration: 1800
+              });
+              setTimeout(function () {
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+                  window.webkit.messageHandlers.toCardLsitController.postMessage(null);
+                } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+                  iflyapp.toCardLsitController();
+                }
+              }, 1800);
+            } else {
+              _this.$toast({
+                message: data.message,
+                duration: 1800
+              });
+            }
+          }, function () {
+            _this.$indicator.close();
+          })
+        }
+      },
+      iflyRequest(data, succseeCallback, errorCallback) {
+        var url = 'https://iflyapp.iflytek.com:9443/TyTransService/tytranservice/transfer/transInterface';
+<!--        var url = 'http://117.71.53.47:9080/TyTransService/tytranservice/transfer/transInterface';-->
+        // 数据加密
+        data = data;
+        var paramData = data;
+        data = JSON.stringify(data);
+
+        var userInfo = this.userInfo;
+        var dataKey = CryptoJS.enc.Utf8.parse(userInfo.securityKey);
+        var dataSrcs = CryptoJS.enc.Utf8.parse(data);
+        var encrypted = CryptoJS.AES.encrypt(dataSrcs, dataKey, {
+          mode: CryptoJS.mode.ECB,
+          padding: CryptoJS.pad.Pkcs7
+        });
+        var securityData = {
+          "securityData": encrypted.toString()
+        };
+        securityData = JSON.stringify(securityData);
+        $.ajax({
+          type: 'POST',
+          url: url,
+          async: true,
+          data: securityData,
+          timeout: 20000, //超时时间设置，单位毫秒
+          success: function (data) {
+            //数据解密
+            var decrypt = CryptoJS.AES.decrypt(data.securityData, dataKey, {
+              mode: CryptoJS.mode.ECB,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            decrypt = CryptoJS.enc.Utf8.stringify(decrypt).toString();
+            var jsonData = JSON.parse(decrypt);
+            //回调
+            succseeCallback(jsonData);
+          },
+          error: function (xhr, status) {
+            console.log(status);
+            errorCallback(status);
+          }
+        });
+      },
+      //初始化回调
+    },
+    mounted() {
+      window.backAction = function () {
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+          window.webkit.messageHandlers.backAction.postMessage(null);
+        } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+          iflyapp.backAction();
+        }
+      }
+
+      window.saveAction = function () {
+        _this.saveInfoAction()
+      }
+
+      let _this = this;
+      window.transferTokenAndUserIDCallBack = function (userAccount, token, userName, userId, userOrgId, userCode, securityKey) {
+        console.log("transferTokenAndUserIDCallBack==" + "userAccount=" + userAccount + ";token=" + token + ";userName=" + userName + ";userId=" + userId + ";userOrgId=" + userOrgId + ";userCode=" + userCode + ";securityKey=" + securityKey);
+        var userInfo = {
+          "userAccount": userAccount,
+          "token": token,
+          "userName": userName,
+          "userId": userId,
+          "userOrgId": userOrgId,
+          "userCode": userCode,
+          "securityKey": securityKey
+        };
+        _this.userInfo = userInfo;
+      }
+
+      window.handleCardInfo = function (cardInfo) {
+        const info = cardInfo;
+        const cardInfos = info.data;
+
+        _this.imgUrl = info.url;
+
+        let company = '';
+        let department = '';
+        let position = '';
+        if (cardInfos.formatted_name && cardInfos.formatted_name.length > 0) {
+          _this.name = cardInfos.formatted_name[0].item;
+        }
+        if (cardInfos.telephone && cardInfos.telephone.length > 0) {
+          cardInfos.telephone.forEach((obj, index) => {
+            _this.phones.push(obj.item.number.replace(/[^0-9]/ig,""));
+          })
+        }
+        if (cardInfos.email && cardInfos.email.length > 0) {
+          cardInfos.email.forEach((obj, index) => {
+            _this.emails.push(obj.item);
+          })
+        }
+        if (cardInfos.organization && cardInfos.organization.length > 0) {
+          if (cardInfos.organization[0].item.name) {
+            company = cardInfos.organization[0].item.name==null?"":cardInfos.organization[0].item.name;
+          } else if (cardInfos.organization[0].item.unit) {
+            company = cardInfos.organization[0].item.unit==null?"":cardInfos.organization[0].item.unit;
+          }
+        }
+        if (cardInfos.role && cardInfos.role.length > 0) {
+          department = cardInfos.role[0].item==null?"":cardInfos.role[0].item;
+        }
+        if (cardInfos.title && cardInfos.title.length > 0) {
+          position = cardInfos.title[0].item==null?"":cardInfos.title[0].item;
+        }
+        if ((company && company.length) || (department && department.length) || (position && position.length))
+          _this.companyInfo.push({company: company, department: department, position: position});
+
+        if (cardInfos.origin_address && cardInfos.origin_address.length > 0) {
+          cardInfos.origin_address.forEach((obj, index) => {
+            _this.addressInfo.push(obj.item);
+          })
+        }
+      }
+
+      if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+        window.webkit.messageHandlers.getTokenAndUserAccount.postMessage(null);
+      } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+        iflyapp.getTokenAndUserAccount();
+      }
+    },
+  })
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"
+        name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!-- Color theme for statusbar -->
+    <meta content="#fff" name="theme-color" />
+    <!-- Your app title -->
+    <title>打卡说明</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link href="js/plugins/framework7/css/framework7.min.css" rel="stylesheet" />
+    <link href="js/plugins/framework7/css/framework7.ios.css" rel="stylesheet" />
+    <!-- Path to your custom app styles-->
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Statusbar overlay -->
+        <div class="statusbar">
+        </div>
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Initial Page, "data-name" contains page name -->
+            <div class="page" data-name="checkIn">
+
+                <!-- Top Navbar -->
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a class="link icon-only" href="/iframe/"><i class="icon icon-back"></i></a>
+                        </div>
+                        <div class="title" id="checkInTitle">考勤功能说明</div>
+                        <div class="right">
+                            <a class="link icon-only" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scrollable page content -->
+                <div class="page-content bg-color-white padding-left padding-right"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Path to Framework7 Library JS-->
+    <script src="js/plugins/framework7/framework7.min.js" type="text/javascript"></script>
+
+    <!-- Path to your app js-->
+    <script src="js/apps/lib/aes.js" type="text/javascript"></script>
+    <script src="js/apps/lib/mode-ecb.js" type="text/javascript"></script>
+    <script src="js/apps/my-app.js" type="text/javascript"></script>
+</body>
+
+</html>

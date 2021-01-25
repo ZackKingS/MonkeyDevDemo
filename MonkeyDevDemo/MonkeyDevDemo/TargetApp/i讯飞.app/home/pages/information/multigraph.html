@@ -1,0 +1,45 @@
+<div data-page="mutigDetail" class="page navbar-fixed ifly-infor-pictureCarousel">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="#" class="link icon-only back">
+					<i class="icon icon-back"></i>
+				</a>
+			</div>
+			<div class="center"></div>
+		</div>
+	</div>
+	<div class="page-content" id="multigraphCont">
+		<div class="ifly-tc">
+			<div class="preloader"></div>
+		</div>
+	</div>
+	<script type="text/template7" id="multigraph">
+		<div class="swiper-container">
+		    <!-- Slides wrapper -->
+		    <div class="swiper-wrapper">
+		        <!-- Slides -->
+		        {{#each this.imgsList}}
+				<div class="swiper-slide"><img data-title="{{imgContent}}" width="100%" src="{{imgUrl}}" alt=""></div>
+				{{/each}}
+		    </div>
+			<div id="slideTitle" class="ifly-text">
+				<div class="text-wap">{{imgsList[0].imgContent}}</div>
+				<p class="text-bot">	
+					<span class="current-num" id="currentNum">1</span>
+					<span class="total-num">/{{imgsCount}}</span>
+
+					{{#js_compare "this.hasUpvote=='true'"}}
+					<span class="ifly-orange upvote ifly-fr" data-id="{{newsId}}" style="margin-top: 13px">
+						<i class="icon icon-thumb"></i>&nbsp;{{upvote}}
+					</span>
+					{{else}}
+					<span class="upvote ifly-fr" data-id="{{newsId}}" style="margin-top: 13px">
+						<i class="icon icon-thumbWhite"></i>&nbsp;<font>{{upvote}}</font>
+					</span>
+					{{/js_compare}}
+				</p>
+			</div>
+		</div>
+	</script>
+</div>

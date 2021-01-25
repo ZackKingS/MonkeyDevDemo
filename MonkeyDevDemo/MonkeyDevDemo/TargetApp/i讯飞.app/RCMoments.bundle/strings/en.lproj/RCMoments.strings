@@ -1,0 +1,172 @@
+
+/*
+ RCMoments.strings
+ RongEnterpriseApp
+ 
+ Created by 孙承秀 on 2017/12/4.
+ Copyright © 2017年 rongcloud. All rights reserved.
+ */
+"moment_vc_title"="Moments";
+"moment_vc_noDatas"="No contents";
+"common_confirmDelete"="Confirm deletion?";
+"common_change_album_cover"="Change Cover";
+"common_alert"="Delete my comment?";
+"common_hint"="Alert";
+"common_cancel"="Cancel";
+"common_deleteFail"="Delete failed";
+"common_operationFail"="The operation failure";
+"common_delete"="Delete";
+"moment_header_view_newNews"="%ld new messages";
+"moment_footer_view_info"="Loading...";
+"common_reply"="@";
+"common_comment"="Comment";
+"common_copy"="Copy";
+"common_praise"="Like";
+"common_current"="Just";
+"common_yes"="Yesterday";
+"common_today"="Today";
+"common_minutes"="%ld mins ago";
+"common_album"="Album";
+"common_loading"="Loading...";
+"common_login"="logining";
+"common_total_count_fmt"="%ld item(s)";
+"common_message"="Message";
+"common_clear"="Clear";
+"moment_remind_me_footer_view_show"="View more…";
+"moment_remind_me_footer_view_no_content"="No contents";
+"common_clearMessages"="Clear all messages?";
+"common_year"="/";
+"common_month"="/";
+"common_day"="";
+"common_less1000"="Up to 1000 chars for comment";
+"common_iKnow"="OK";
+"common_alertDeleteFeed"="Content deleted.";
+"common_alertDeleteComment"="Comment deleted.";
+"common_photo_delete"="Delete";
+"common_forward"="Forward";
+"common_network_error_message"="Network Error!";
+
+/// Date
+"common_format_year"="%@";
+"common_January"="Jan";
+"common_February"="Feb";
+"common_March"="Mar";
+"common_April"="Apr";
+"common_May"="May";
+"common_June"="Jun";
+"common_July"="Jul";
+"common_August"="Aug";
+"common_September"="Sep";
+"common_October"="Oct";
+"common_November"="Nov";
+"common_December"="Dec";
+"common_yesterday"="Yesterday";
+
+
+/// Date
+"common_format_year"="%@";
+"common_January"="Jan";
+"common_February"="Feb";
+"common_March"="Mar";
+"common_April"="Apr";
+"common_May"="May";
+"common_June"="Jun";
+"common_July"="Jul";
+"common_August"="Aug";
+"common_September"="Sep";
+"common_October"="Oct";
+"common_November"="Nov";
+"common_December"="Dec";
+"common_yesterday"="Yesterday";
+
+
+/// Date
+"common_format_year"="%@";
+"common_January"="Jan";
+"common_February"="Feb";
+"common_March"="Mar";
+"common_April"="Apr";
+"common_May"="May";
+"common_June"="Jun";
+"common_July"="Jul";
+"common_August"="Aug";
+"common_September"="Sep";
+"common_October"="Oct";
+"common_November"="Nov";
+"common_December"="Dec";
+"common_yesterday"="Yesterday";
+"common_AM"="AM";
+"common_PM"="PM";
+
+"moment_cell_show"="Full Text";
+"moment_cell_dismiss"="Collapse";
+"moment_cell_delete"="Delete";
+
+"dispose_image_vc_rotate"="Rotate";
+"dispose_image_vc_cancel"="Cancel";
+"dispose_image_vc_restore"="Restore";
+"dispose_image_vc_select"="Select";
+
+"change_album_cover_vc_title"="Change Cover";
+"change_album_cover_vc_choose_from_album"="Choose from album";
+"change_album_cover_vc_take_a_photo"="Take a photo";
+
+/// Album
+"moment_album_vc_praise_cover"="Praise the cover";
+"moment_album_vc_messages"="The message list";
+
+//创建
+"common_alert_confirm"="Confirm";
+"common_exit"="Exit";
+"common_cancel"="Cancel";
+"common_photo_down_load_error"="This photo has not been downloaded from iCloud, please retry after downloaded to the local.";
+"common_complete"="Done";
+"common_deleteFail"="Delete failed";
+"common_operationFail"="The operation failure";
+"common_current"="Just";
+"common_yes"="Yesterday";
+"common_today"="Today";
+"common_oneMinute"="1 minute ago";
+"common_minutes"="%ld mins ago";
+"common_album"="Album";
+"common_my_posts"="My Posts";
+"common_loading"="Loading...";
+"common_max_selected_photo_count"="You can only select %ld photos at most";
+
+"moment_create_vc_title"="Send Message";
+"moment_create_vc_publish"="Post";
+"moment_create_vc_text_limit_error_message"="Up to 2000 chars for content";
+"moment_create_vc_I_know"="OK";
+"moment_create_vc_sending"="sending";
+"moment_create_vc_upload_data_error"="Upload data error";
+"moment_create_vc_exit_create_moment"="Discard the changes？";
+"moment_create_vc_drag_to_delete"="Drag here to delete";
+"moment_create_vc_delete_photo"="Let go to remove";
+
+"moment_edit_header_view_text_title"="Say something...";
+"moment_edit_header_view_alert_title"="Can't access";
+"moment_edit_header_view_alert_content"="You don't have the access right of camera, please set it in Settings";
+"moment_edit_header_view_my_photo_album"="Choose from Ablum";
+"moment_edit_header_view_photograph"="Photograph";
+
+"moment_photo_preview_collection_vc_original_drawing"="Full Image";
+
+"moment_alum_list_table_vc_title"="Album";
+"moment_alum_list_table_vc_competence_error"="You don't have the access right of camera, please set it in Settings";
+
+"moment_photos_picker_controller_file_preview"="file preview";
+
+"moment_pre_photo_view_save_photo"="Save to album";
+
+"moment_photos_preview_controller_back"="Back";
+"moment_photos_preview_controller_delete_photo"="Delete this photo？";
+
+"detail_vc_title"="Details";
+"detail_vc_comment_fail"="Comment on failure";
+"detail_vc_delete_fail"="Delete failed";
+"detail_vc_comment"="comment";
+"detail_vc_goto_fail"="turn to：%@ failed";
+"change_album_cover_vc_back_button_title"="Moments";
+"change_album_cover_vc_setting"="Setting...";
+"change_album_cover_vc_set_failed"="Set failed";
+"change_album_cover_vc_set_successfully"="Set successfully";

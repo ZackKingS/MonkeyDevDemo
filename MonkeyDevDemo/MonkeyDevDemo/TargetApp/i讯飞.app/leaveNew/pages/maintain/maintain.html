@@ -1,0 +1,318 @@
+<!--suppress ALL -->
+<template>
+    <div class="page" data-page="maintain">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a class="link icon-only back" href="#"><i class="icon icon-back"></i></a>
+                </div>
+                <div class="title">考勤维护</div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div class="toolbar bg-color-white">
+            <div class="toolbar-inner row no-gap no-padding">
+                <!-- Toolbar links -->
+                <a @click="chooseAll" class="button button-big col-33 button-white text-align-left padding-left" href="#">
+                	<label class="checkbox">
+						<!-- checkbox input -->
+						<input type="checkbox" id="All">
+						<!-- checkbox icon -->
+						<i class="icon-checkbox"></i>
+					</label>&nbsp;&nbsp;全选
+                </a>
+                <a class="col-33"></a>
+                <a class="button button-big col-33 button-orange" href="#" @click="creatModal">批量维护</a>
+            </div>
+        </div>
+        <div class="page-content">
+        	{{#each listData}}
+            <div class="list inline-labels no-hairlines no-margin">
+                <ul class="ifly-margin-top10" style='display: {{js "this.result&&this.content.length!=0 ? 'block' : 'none'"}}'>
+                    <li>
+                        <a class="item-link item-content item-input" href="/approval/?id=mainApproval">
+                            <div class="item-inner">
+                                <div class="item-title item-label">
+                                    审批人
+                                </div>
+                                <div class="item-input-wrap">
+                                    <input class="text-align-right" id="mainApproval" placeholder="请选择" readonly="true" type="text"/>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="list no-hairlines inline-labels no-margin ifly-maintain-list">
+                {{#if this.result}}
+	                {{#js_if "this.content.length!=0"}}
+						{{#each this.content}}
+						<ul class="ifly-margin-top10 iflyLeaveItem" data-id="{{certificateId}}" data-leaveLength="{{leavelength}}">
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">
+											<label class="checkbox" @click="itemChange">
+												<!-- checkbox input -->
+												<input type="checkbox">
+												<!-- checkbox icon -->
+												<i class="icon-checkbox"></i>
+											</label>&nbsp;
+											<font>{{date}}</font>&nbsp;<span class="ifly-size14">{{weekLeave date}}&nbsp;{{startJudge this}} - {{endJudge this}}</span>
+										</div>	
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="item-link item-content item-input">
+			                        <div class="item-inner">
+			                            <div class="item-title item-label">类型</div>
+			                            <div class="item-input-wrap">
+			                            	<input @click="createPicker" class="text-align-right" id="input{{@index}}" placeholder="请选择" readonly="true" type="text"/>
+			                        	</div>
+			                		</div>
+		                		</a>
+		                    </li>
+							<li class="padding-left padding-right">
+		                        <textarea @input="heightAuto" name="" id="" placeholder="申请原因"></textarea>
+		                    </li>
+						</ul>
+						{{/each}}
+					{{else}}
+					<ul class="ifly-margin-top10 ifly-empty">
+						<li class=" text-align-center">
+							<img width="30%" src="img/ifly-empty.png" alt="">
+							<p>暂无数据</p>
+						</li>
+					</ul>
+					{{/js_if}}					
+				{{else}}
+					<ul class="ifly-margin-top10 ifly-empty">
+						<li class=" text-align-center">
+							<img width="30%" src="img/ifly-error.png" alt="">
+							<p>请求出错</p>
+						</li>
+					</ul>
+				{{/if}}
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</template>
+<!-- rest of component data and methods -->
+<script>
+    // script must return component object
+  	return {
+	    data: function () {
+	      	return {
+	      	}
+	    },
+	    methods: {
+	      	createPicker:function(e){
+	      	    var _this=this;
+                this.pickerType.inputEl='#'+$$(e.target).attr('id');
+                this.pickerType.$inputEl=$$(e.target);
+                if($$(e.target).val()!=''){
+                    this.pickerType.value=[$$(e.target).attr('data-val')];
+				}else{
+                    $$(e.target).val([_this.offListName[0]]);
+                    $$(e.target).attr('data-val',[_this.offListId[0]]);
+				}
+                this.pickerType.open();
+	      	},
+	      	chooseAll:function(e){
+	      		var ele=null;
+	      		if($$(e.target)[0].tagName.toLowerCase()=='i'){
+	      			ele=$$(e.target).parent()
+	      		}else{
+	      			ele=$$(e.target)
+	      		}
+	      		ele.find('input').prop('checked',!ele.find('input').prop('checked'));
+	      		ele.find('input').trigger('change');
+
+	      		$$('.ifly-maintain-list').children('ul').each(function(){
+	      			$$(this).find('input[type=checkbox]').prop('checked',ele.find('input').prop('checked'));
+	      		});
+	      	},
+	      	itemChange:function(e){
+	      		var num=0,ele=$$(e.target).parent().children('input');
+	      		!ele.prop('checked')?++num:--num;
+	      		$$('.ifly-maintain-list').children('ul').each(function(){
+		      		$$(this).find('input[type=checkbox]').prop('checked') && ++num;
+		      	})
+
+		      	if(num==$$('.ifly-maintain-list').children('ul').length){
+		      		$$('#All').prop('checked',true)
+		      	}else{
+		      		$$('#All').prop('checked',false);
+		      	}
+	      	},
+	      	heightAuto:function(e){
+	      		$$(e.target).css('height','44px')
+	      		$$(e.target).css('height',e.target.scrollHeight+'px')
+	      	},
+	      	creatModal:function(){ //批量维护
+	      		var _this=this,through=true,amBillEntryList=[],chooseNum=0,chooseArr=[];
+
+                $$('.ifly-maintain-list').children('ul').each(function(){
+                    if($$(this).find('input[type=checkbox]').is(':checked')){
+                        ++chooseNum;
+                        chooseArr.push($$(this).attr('data-id'))
+					}
+				})
+
+	      		if(chooseNum==0){
+	      			app.toast.create({
+					  	text: '请至少选中一项',
+					  	position: 'center',
+					  	closeTimeout: 2000
+					}).open();
+	      			return
+	      		}
+
+				if($$('#mainApproval').attr('data-id')==undefined) through=false;
+				$$('.iflyLeaveItem').forEach(function(){
+					if($$(this).find('input[type=checkbox]').is(":checked")){
+				      	if($$(this).find('input[type=text]').val()==""||$$(this).find('textarea').val()==""){
+				      		through=false
+				      	}else{
+				      		amBillEntryList.push({
+				      			"fattendanceid": $$(this).attr('data-id'),
+								"fbegindate": $$(this).children('li').eq(0).find('font').eq(0).html(),
+								"fbegintime": $$(this).children('li').eq(0).find('font').eq(1).html()=='未打卡'?'':$$(this).children('li').eq(0).find('font').eq(1).html(),
+								"fenddate": $$(this).children('li').eq(0).find('font').eq(0).html(),
+								"fendtime": $$(this).children('li').eq(0).find('font').eq(2).html()=='未打卡'?'':$$(this).children('li').eq(0).find('font').eq(2).html(),
+								"fleavelength": $$(this).attr('data-leavelength'),
+								"freason": $$(this).find('textarea').val(),
+								"ftypeid": $$(this).find('input[type=text]').attr('data-val'),
+								"funittype": "1",
+								"lastattendancetime": ""
+							})
+						};
+					}
+				})
+
+				if(!through){
+					app.dialog.alert('请将信息填写完整'); return
+				}
+
+	      		_this.throughModal=app.dialog.create({
+				    title: '',
+				    text: '<div><img width="25%" src="img/ifly-submit.png" alt=""><p>您已选中<span class="text-color-red">'+chooseNum+'</span>条记录，是否确认提交？</p></div>',
+				    cssClass:'ifly-modal',
+				    buttons: [
+				      {
+				        text: '取消'
+				      },{
+				      	text:'通过',
+				      	onClick:function(){
+
+				      		postData('exceptionHandingNewHandle',function(data){
+
+				      			if(!data.result||data.result=='false'){
+				      				app.dialog.alert(data.message);
+				      			}else{
+				      				app.toast.create({
+										text: '提交成功',
+										position: 'center',
+										closeTimeout: 2000,
+									}).open();
+                                    chooseArr.forEach(function(item,index){
+                                        $$('#listWap').children('li').each(function(){
+                                            var id=$$(this).find('.default-button').eq(1).attr('href').split('=')[1];
+                                            if(id==item){
+                                                $$(this).remove()
+                                            }
+                                        })
+                                    });
+				      				_this.$router.refreshPage()
+				      			}
+
+				      		},{
+				      			"zxsprnumber": getEmplCode($$('#mainApproval').attr('data-id')),
+							    "formtype": "hrm",
+							    "formid": "136",
+							    "amBill": {
+							        "attachment": "",
+							        "fapplydate": new Date().format("yyyy-MM-dd"),
+									"fnumber":getEmplCode(sessionStorage.getItem('userCode')),
+							        "fremark": "",
+							        "fsearchbegindate":leaveCircleBegin() ,
+							        "fsearchenddate": new Date().format("yyyy-MM-dd")
+							    },
+							    "amBillEntryList": amBillEntryList
+				      		})
+
+				      	}
+				      }
+				    ]
+				}).open();
+	      	}
+	    },
+	    on: {
+		  	pageInit: function (e, page) {
+
+		  		var _this=this,offListId=[],offListName=[];
+
+                showTabBarJS(false);
+
+		  		// 加载异常类型
+		  		postData('getOffListNew',function(data){
+		  			if(data.result=='true'){
+		  				_this.offListData=data.offList.forEach(function(item){
+		  					offListName.push(item.offName);
+		  					offListId.push(item.offId)
+		  				})
+		  			}
+		  			_this.offListId=offListId;
+		  			_this.offListName=offListName;
+
+                    _this.pickerType = app.picker.create({
+                        inputEl: '',
+                        toolbarCloseText:'确定',
+                        formatValue: function(values, displayValues) {
+                            return displayValues[0]
+                        },
+                        cols: [
+                            {
+                                textAlign: 'center',
+                                values: _this.offListId,
+                                displayValues: _this.offListName
+                            }
+                        ],
+                        on:{
+                            open:function (picker) {
+
+                                var htm="<div class='dialog-backdrop backdrop-in picker-backdrop'></div>";
+                                $$(picker.$el).css('z-index','13500');
+                                $$(picker.$el).parent().append(htm);
+                                $$(picker.$el).parent().children('.picker-backdrop').click(function () {
+                                    picker.close()
+                                })
+
+                            },
+                            close:function (picker) {
+                                if($$(picker.$el).parent().children('.picker-backdrop').length!=0){
+                                    $$(picker.$el).parent().children('.picker-backdrop').removeClass('backdrop-in');
+                                    $$(picker.$el).parent().children('.picker-backdrop').remove();
+                                };
+                            },
+                            change:function(picker, values, displayValues){
+                                $$(this.inputEl).attr('data-val',values[0])
+                            }
+                        }
+                    });
+
+		  		});
+		        console.log(_this.listData);
+		  	},
+            pageBeforeRemove: function (e, page) {
+                if(page.direction=='backward'){
+                    showTabBarJS(true);
+                }
+		  	}
+	    }
+  	}
+</script>

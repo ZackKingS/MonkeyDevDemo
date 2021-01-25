@@ -1,0 +1,567 @@
+{
+    "moments":[
+       {
+               "feedId":656,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "create_dt":"1512964800000",
+               "content":{
+               "text": "游君山，甚为真。崔嵬砟硌，尔自为神。乃到王母台，金阶玉为堂，芝草生殿旁。东西厢，客满堂。主人当行觞，坐者长寿遽何央。",
+               "medias":[
+                         {
+                            "url": "http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                         "thumbnail":"http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                            "type":0
+                         }
+                ]
+       },
+               "type":3,
+               "position":{
+                    "latitude": 38.222,
+                    "longitude": 432,
+                    "address": "北辰泰岳大厦"
+               }
+       },
+        {
+               "feedId":656,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "create_dt":1506830400000,
+               "content":{
+                    "text": "天气很好 🌞🌞🌞🌞🌞🌞",
+                    "medias":[
+                        {
+                              "url": "http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                              "thumbnail":"http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                             "type":0
+                        }
+                    ]
+               },
+               "type":3,
+               "position":{
+                    "latitude": 38.222,
+                    "longitude": 432,
+                    "address": "北辰泰岳大厦"
+               }
+        },
+        {
+               "feedId":656,
+               "create_dt":1504238400000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+                    "text": "夫英雄者，胸怀大志，腹有良谋，有包藏宇宙之机，吞吐天地之志也!",
+                    "medias":[
+                              {
+                              "url": "http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                              "thumbnail":"http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                                "type":0
+                            },
+                            {
+                              "url": "http://www.qqzhi.com/uploadpic/2014-09-16/164443801.jpg",
+                              "thumbnail":"http://www.qqzhi.com/uploadpic/2014-09-16/164443801.jpg",
+                              "type":0
+                              }
+                    ]
+               },
+               "type":3,
+               "position":{
+                    "latitude": 38.222,
+                    "longitude": 432,
+                    "address": "望京sohou"
+               }
+        },
+       {
+               "feedId":656,
+               "create_dt":1471323600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "云行雨步，超越九江之皋。临观异同，心意怀犹豫，不知当复何从？ 经过至我碣石，心惆怅我东海。",
+               "medias":[
+                         {
+                         "url": "http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                         "thumbnail":"http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                         "type":0
+                         },
+                         {
+                         "url": "http://www.qqzhi.com/uploadpic/2014-09-16/164443801.jpg",
+                         "thumbnail":"http://www.qqzhi.com/uploadpic/2014-09-16/164443801.jpg",
+                         "type":0
+                         },
+                         {
+                         "url": "http://www.haoqq.net/article/UploadPic/2010-9/201091211142863.png",
+                         "thumbnail":"http://www.haoqq.net/article/UploadPic/2010-9/201091211142863.png",
+                         "type":0
+                         }
+                         ]
+               },
+               "type":2
+       },
+       {
+               "feedId":656,
+               "create_dt":1471150800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+                    "text": "天气真糟糕",
+                   "medias":[
+                             {
+                             "url": "http://www.haoqq.net/article/UploadPic/2010-9/201091211142863.png",
+                             "thumbnail":"http://www.haoqq.net/article/UploadPic/2010-9/201091211142863.png",
+                             "type":0
+                             }
+                             ]
+               },
+               "type":2
+       },
+       {
+               "feedId":656,
+               "create_dt":1470978000000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+                    "text": "今天天气真不错 😀😀😀😀😀😀",
+                   "medias":[
+                             {
+                             "url": "http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                             "thumbnail":"http://m.qqzhi.com/upload/img_4_3246393883D2086251943_23.jpg",
+                             "type":0
+                             },
+                             {
+                             "url": "http://www.qqzhi.com/uploadpic/2014-09-16/164443801.jpg",
+                             "thumbnail":"http://www.qqzhi.com/uploadpic/2014-09-16/164443801.jpg",
+                             "type":0
+                             },
+                             {
+                             "url": "http://www.haoqq.net/article/UploadPic/2010-9/201091211142863.png",
+                             "thumbnail":"http://www.haoqq.net/article/UploadPic/2010-9/201091211142863.png",
+                             "type":0
+                             },
+                             {
+                             "url": "http://www.haoqq.net/article/UploadPic/2010-8/20108112737770.png",
+                             "thumbnail":"http://www.haoqq.net/article/UploadPic/2010-8/20108112737770.png",
+                             "type":0
+                             }
+                             ]
+               },
+               "type":2
+       },
+       {
+           "feedId":656,
+           "create_dt":1470805200000,
+           "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+           "content":{
+               "text": "天气真糟糕"
+            },
+            "type":0
+       },
+       {
+           "feedId":656,
+           "create_dt":1438664400000,
+           "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+           "content":{
+               "text": "天气真糟糕"
+           },
+           "type":0
+       },
+               {
+               "feedId":656,
+               "create_dt":1438578000000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "天气真糟糕"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1438491600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "天气真糟糕"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406869200000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "天气真糟糕"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406865600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "天气真糟糕"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406872800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "天气真糟糕"
+               },
+               "type":3
+               },
+               {
+               "feedId":656,
+               "create_dt":1406876400000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "天气真糟糕"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中。星汉灿烂，若出其里。幸甚至哉，歌以咏志。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "原来微信也遇到了这个问题呢，我们一起来看看他们是如何干掉这个Crash的吧！"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "iOS 10.0-10.1.1上，新出现了一类堆栈为nano_free字样的crash问题，困扰了我们一段时间，这里主要分享解决这个问题的思路，最后尝试提出一个解决方案可供参考。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "正当大家都束手无策的时候，微信强大的技术团队针对这类Crash进行了深度研究，并提出了一个解决方案。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "精神哥最近发现， 很多开发者在 iOS10 上遇到了一类堆栈为nano_free字样的Crash，也有很多人向我们Bugly客服反馈遇到了这类问题，但并没有好的解决方案。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "如 果你想对一个已使用 Swift 2.0 开发的工程引入 Siri 功能，需要点击工程，选择 Build Settings，在 Swift Compiler - Version 下面，找到 Use Legacy Swift Language Version 选项，设置成 No。",
+               "medias":[{
+               "url": "http://cms-bucket.nosdn.127.net/catchpic/f/f1/f17a66030eb7db8cb3d3166ac0646a46.jpg?imageView&thumbnail=550x0",
+               "thumbnail":"http://cms-bucket.nosdn.127.net/catchpic/f/f1/f17a66030eb7db8cb3d3166ac0646a46.jpg?imageView&thumbnail=550x0",
+               "type":0
+               }]
+               },
+               "type":3
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "这两种迹象表明，这很可能是苹果的bug。按流程，我们向苹果提了bug report，并得到回复：“iOS 10.2 Beta有稳定性提升”。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "终于等到iOS 10.2 Beta发布，我们重新统计了此类crash的系统版本分布。发现不仅在10.2 Beta正常，而且iOS 9也没有crash。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "除 非你想使用命令行编译，使用 Swift 3.0 的工具链并不需要对项目做任何改变。如果你想的话，打开 Xcode-beta",
+               "medias":[{
+               "url": "http://b.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=f6277da51a4c510fae91ea1e5569091b/4b90f603738da97748712546b051f8198618e305.jpg",
+               "thumbnail":"http://b.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=f6277da51a4c510fae91ea1e5569091b/4b90f603738da97748712546b051f8198618e305.jpg",
+               "type":0
+               }]
+               },
+               "type":3
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中。星汉灿烂，若出其里。幸甚至哉，歌以咏志。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "苹果给我们的建议是：“引导用户升级系统”。这当然能解决问题，但用户升级系统是个漫长的周期。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "如果说 HomeKit 只是一个框架的话，那么智能家居应用就是让框架成为现实功能的催化剂。",
+               "medias":[
+                         {
+                         "url": "http://img2.askci.com/images/chanye/2015/6/8/9c13c055-684f-43e7-b2c5-7df4554a53e5.jpg",
+                         "thumbnail":"http://img2.askci.com/images/chanye/2015/6/8/9c13c055-684f-43e7-b2c5-7df4554a53e5.jpg",
+                         "type":0
+                         }
+                         ]
+               },
+               "type":3
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中。星汉灿烂，若出其里。幸甚至哉，歌以咏志。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中。星汉灿烂，若出其里。幸甚至哉，歌以咏志。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "　有了智能家居应用后，你就可以使用它来控制兼容 HomeKit 的设备，它能够将你家中的智能设备连接起来"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406703600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "而其实我们非常关注这个问题的原因，不仅是线上版本的crash，更是在我们的开发分支，它的crash概率异常的高。如果不搞清楚触发crash的原因，那这将是一颗定时炸弹，不知道何时就会被我们合入主线，发布出去。因此我们着手开始做一些尝试。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406707200000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "首先我们的切入点是iOS 9和10.2 Beta没有crash。既然如此，能否将正常的代码合入微信，替换掉系统的呢？"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406710800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "~/Library/Developer/Xcode/iOS DeviceSupport/找到，我们选了iOS 9.3.5的libsystem_malloc.dylib。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406714400000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "Apple 公司的 iOS10 即将正式发布，并且会整合更完善的Home应用，那么现在有哪些比较实用或有趣的支持Homekit的智能家居呢? 又能如何购买这些设备呢?"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406595600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中。星汉灿烂，若出其里。幸甚至哉，歌以咏志。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406599200000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中。星汉灿烂，若出其里。幸甚至哉，歌以咏志。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406602800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "今天在家宅了一整天，闲来无事又去关注了一下HomeKit。这不看不要紧，一看不得了啊。Apple有了全新的HomeKit配件列表网页，几乎把目前所有的产品都总结了"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406509200000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "这个是因为dylib的LY_SUB_FRAEWORK段指明它属于System.framework，"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406512800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "直接被编译器拒绝了。看来没有办法。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406516400000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "如果有同学知道如何绕过这个保护，烦请赐教。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406422800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "libsystem_malloc.dylib的源码可以在 https://opensource.apple.com/tarballs/libmalloc/ 找到。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406426400000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "这里有多个版本，用otool找到iOS 9.3.5对应的源码是libmalloc-67.40.1.tar.gz。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406430000000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "然而这份源码是不完整的，只能读不能编译"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406336400000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "看来这个方法也行不通。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406340000000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "上述两个方法不行，就有点束手无策了，只能阅读源码，尝试找突破口。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406343600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "在libsystem_malloc.dylib中，对内存的管理有两个实现：nano zone和scalable zone。他们分别管理不同大小的内存块："
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406250000000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "其中nano zone分配nano类型的指针"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406253600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "而scalable zone则分配其他三种类型。nano zone的管理区间和scalable zone是有重叠的"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406257200000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "可以理解为nano zone是scalable在小内存下的一个优化。"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406163600000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "这两种方法通过MallocZoneNano的环境变量进行配置："
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406167200000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "当MallocZoneNano=1时，default zone为nano zone"
+               },
+               "type":0
+               },
+               {
+               "feedId":656,
+               "create_dt":1406170800000,
+               "user_id": "X4NqTmpKMHAcsJYCRM5YEY",
+               "content":{
+               "text": "不满足nano zone的内存会fall through到它的helper zone，而helper zone是一个scalable zone"
+               },
+               "type":0
+               }
+    ]
+}

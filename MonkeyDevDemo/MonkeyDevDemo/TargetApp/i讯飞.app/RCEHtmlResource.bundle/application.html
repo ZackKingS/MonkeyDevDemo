@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html id="html">
+<head>
+<title>工作</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/mobile-reset.css"/>
+<link rel="stylesheet" href="css/mobile.css"/>
+</head>
+<body class="p-application">
+
+<div class="g-banner">banner图</div>
+<ul class="m-list-application g-list-common">
+	<li class="m-item-application g-item-common">
+		<a class="m-link-page m-link-application-approve" ">审批</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page m-link-application-attendance" href="attendance.html">考勤</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page  m-link-application-docs" href="docs.html">文档</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page m-link-application-log" href="journaling.html">日志</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page m-link-application-email" href="#">邮箱</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page m-link-application-announcement" href="#">公告</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page  m-link-application-calendar" href="#">台历</a>
+	</li>
+	<li class="g-item-common">
+		<a class="m-link-page  m-link-application-plan" href="#">订餐</a>
+	</li>
+</ul>
+
+<script>
+(function(){
+	var search = location.search.substring('1');
+
+	function arreach(a,f){
+		if(!a || !f)return;
+        var i = 0;
+        var l = a.length;
+        for(;i<l;i++){
+        	f(a[i],i)
+        }
+	}
+	var userInfo={};
+	
+	//decode
+	search = search.split("&amp;").join("&");
+
+	arreach(search.split("&"), function(item, index){
+		var key = decodeURIComponent(item.split("=")[0]);
+		var value = decodeURIComponent(item.split("=")[1]);
+        userInfo[key] = value;
+    });
+    localStorage.setItem("rongcloud-userinfo",userInfo);
+    // localStorage.setItem("rongcloud-userinfo",JSON.stringify(userInfo))
+})();
+</script>
+</body>
+</html>

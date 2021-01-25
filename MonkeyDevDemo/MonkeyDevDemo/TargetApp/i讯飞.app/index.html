@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Your app title -->
+    <title>应用</title>
+    <!-- Path to Framework7 Library CSS, iOS Theme -->
+    <link rel="stylesheet" href="js/plugins/framework7/css/framework7.ios.min.css">
+    <!-- Path to Framework7 color related styles, iOS Theme -->
+    <link rel="stylesheet" href="js/plugins/framework7/css/framework7.ios.colors.min.css">
+    <!-- toast -->
+    <link rel="stylesheet" type="text/css" href="js/plugins/toast/toast.css">
+
+    <!--<link rel="stylesheet" href="js/plugins/vedio/css/video-js.css">-->
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/common.css">
+  </head>
+  <body class="ifly-theme-white">
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages">
+
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page navbar-fixed">
+            
+            <div class="navbar">
+                <div class="navbar-inner">
+<!--                    <div class="left"><a id="search" href="#" class="link icon-only"><i class="icon icon-search"></i></a></div>-->
+                    <div class="center">应用</div>
+                    <div class="right">
+                        <a href="javascript:;" id="linkToKf" class="link icon-only" style="justify-content: flex-end">
+                            <i class="icon icon-kf"></i>
+                        </a>
+                      <a href="pages/msg.html" class="link icon-only">
+                        <i class="icon icon-msg"></i>
+                        <span class="ifly-spot" id="spot"></span>
+                      </a>
+                    </div>
+                </div>
+                <form action="" class="searchbar searchbar-init" data-search-in=".item-title" style="display: none">
+                    <a href="#" class="searchbar-cancel ifly-blue"><i class="icon icon-back"></i></a>
+                    <div class="searchbar-input">
+                        <input type="search" placeholder="搜索姓名/手机号/车牌号">
+                        <a href="#" class="searchbar-search" id="searchAfter">搜索</a>
+                    </div>
+                </form>
+            </div>
+            <!-- Search Bar overlay-->
+            <div class="searchbar-overlay"></div>
+            <div class="page-content infinite-scroll infinite-scroll-index pull-to-refresh-content pull-to-refresh-content-index">
+                <!-- Default pull to refresh layer-->
+                <div class="pull-to-refresh-layer">
+                  <div class="preloader"></div>
+                  <div class="pull-to-refresh-arrow"></div>
+                </div>
+          
+                <!-- banner -->
+                <div class="swiper-container ifly-swiper-container">
+                    <!-- Slides wrapper -->
+                    <div class="swiper-wrapper" id="swiperWrap">
+                        <div class="swiper-slide">
+                         <img src="img/ifly-ban.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                    <!-- Pagination, if required -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- apps -->
+                <div class="ifly-section" id="appWrap">
+                  <div class="row no-gutter">
+                      <div class="col-25">
+                          <a href="#" onclick="goToPage('','考勤','' , '')">
+                              <img src="img/sectionIcon/iflyui-icon-checkon.png" alt="">
+                              <p>考勤</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                      <div class="col-25">
+                          <a href="#">
+                              <img src="img/ifly-occupyIcon.png" alt="">
+                              <p class="ifly-text-epy">&nbsp;</p>
+                          </a>
+                      </div>
+                  </div>
+                </div>
+
+                <!--链接跳转测试-->
+                <!--<div>-->
+                    <!--<br>-->
+                    <!--<a href="#" class="linkToPage" data-url="https://www.baidu.com/">https://www.baidu.com/</a>-->
+                <!--</div>-->
+
+                <!-- 待办 -->
+                <div class="list-block media-list ifly-exist-list" id="flyExist">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-content">
+                                <div class="item-media"><img src="img/ifly-occupy.png" width="100%" alt=""></div>
+                                <div class="item-inner">
+                                    <span class="ifly-title-emp" style="width: 50%;"></span>
+                                    <span class="ifly-text-emp"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 资讯 -->
+                <div class="list-block media-list ifly-headlines-list" id="headLineList">
+                    <div class="ifly-news-hd row">
+                        <a href="#tab1" class="tab-link active">讯飞头条</a>
+                        <a href="#tab2" class="tab-link">通知</a>
+                        <a href="#tab3" class="tab-link">公文</a>
+                    </div>
+                  <!--<h2 class="ifly-title"><span>讯飞头条</span><a class="ifly-fr" onclick="if(isIOS){window.webkit.messageHandlers.goToinformation.postMessage(null);}else{iflyapp.goToinformation();}">...</a></h2>-->
+                    <div class="">
+                        <div class="tabs">
+                            <ul id="tab1" class="tab active">
+                          <li>
+                              <a href="#" class="item-content">
+                                  <div class="item-inner">
+                                      <span class="ifly-title-emp" style="height: 40px;"></span>
+                                      <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                  </div>
+                                  <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="item-content">
+                                  <div class="item-inner">
+                                      <span class="ifly-title-emp" style="height: 40px;"></span>
+                                      <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                  </div>
+                                  <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="item-content">
+                                  <div class="item-inner">
+                                      <span class="ifly-title-emp" style="height: 40px;"></span>
+                                      <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                  </div>
+                                  <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                              </a>
+                          </li>
+                        </ul>
+                            <ul id="tab2" class="tab">
+                              <li>
+                                  <a href="#" class="item-content">
+                                      <div class="item-inner">
+                                          <span class="ifly-title-emp" style="height: 40px;"></span>
+                                          <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                      </div>
+                                      <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="item-content">
+                                      <div class="item-inner">
+                                          <span class="ifly-title-emp" style="height: 40px;"></span>
+                                          <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                      </div>
+                                      <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="item-content">
+                                      <div class="item-inner">
+                                          <span class="ifly-title-emp" style="height: 40px;"></span>
+                                          <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                      </div>
+                                      <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                  </a>
+                              </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                          </ul>
+                            <ul id="tab3" class="tab">
+                              <li>
+                                  <a href="#" class="item-content">
+                                      <div class="item-inner">
+                                          <span class="ifly-title-emp" style="height: 40px;"></span>
+                                          <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                      </div>
+                                      <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="item-content">
+                                      <div class="item-inner">
+                                          <span class="ifly-title-emp" style="height: 40px;"></span>
+                                          <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                      </div>
+                                      <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="item-content">
+                                      <div class="item-inner">
+                                          <span class="ifly-title-emp" style="height: 40px;"></span>
+                                          <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                      </div>
+                                      <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                  </a>
+                              </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-content">
+                                    <div class="item-inner">
+                                        <span class="ifly-title-emp" style="height: 40px;"></span>
+                                        <span class="ifly-text-emp" style="margin-top: 10px;"></span>
+                                    </div>
+                                    <div class="item-media" style="width: 100px;"><img data-src="img/ifly-occupy.png" src="img/ifly-occupy.png" class="lazy" width="100%" alt=""></div>
+                                </a>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preloader -->
+                <div class="infinite-scroll-preloader infinite-scroll-preloader-index">
+                  <div class="preloader"></div>
+                  <p style="display: none;margin: 5px 0;">没有更多数据了</p>
+                </div>
+            </div>
+            
+            <!-- banner -->
+            <script type="text/template7" id="myBanner">
+              {{#js_compare "this.length!=0"}}
+                {{#each this}}
+
+                  {{#js_compare "this.bannerType==1"}}
+                  <div class="swiper-slide">
+                      <img src="{{bannerImg}}" width="100%" alt="">
+                  </div>
+                  {{/js_compare}}
+
+                  {{#js_compare "this.bannerType==2"}}
+                  <div class="swiper-slide" onclick="goToPage('{{bannerUrl}}','','4','')">
+                      <img src="{{bannerImg}}" width="100%" alt="">
+                  </div>
+                  {{/js_compare}}
+
+                  {{#js_compare "this.bannerType==3"}}
+                  <div class="swiper-slide"><a href="#" onclick="inforGoTo('false','1','{{bannerDetail.newsId}}')">
+                    <img src="{{bannerImg}}" width="100%" alt=""></a>
+                  </div>
+                  {{/js_compare}}
+
+                  {{#js_compare "this.bannerType==4 || this.bannerType==5"}}
+                  <div class="swiper-slide" onclick="goToPage('{{bannerUrl}}','{{bannerTitle}}',{{js "parseInt(this.bannerType)+1"}},'')">
+                    <img src="{{bannerImg}}" width="100%" alt="">
+                  </div>
+                  {{/js_compare}}
+
+                {{/each}}
+              {{else}}
+                  <div class="swiper-slide">
+                    <img src="img/banner.png" width="100%" alt="">
+                  </div>
+              {{/js_compare}}
+            </script>
+
+            <!-- 应用 -->
+            <script type="text/template7" id="myApp">
+              <div class="row no-gutter">
+                <div class="col-25 ifly-leave">
+                  <a data-appLoad="0" href="#">
+                    <img src="img/sectionIcon/iflyui-icon-checkon.png" alt="">
+                    <p>考勤</p>
+                  </a>
+                </div>
+              {{#each this.appList}}
+                <div class="col-25">
+                  <a data-url="{{appUrl}}" data-child="{{childMenu}}" data-appLoad="{{appLoadType}}" data-appStatus="{{appStatusColor}}" {{#js_compare "this.appChildMenu!=null"}}data-children='{{stringCh appChildMenu}}'{{/js_compare}} data-appId="{{appId}}" href="#">
+                    <img src="{{appIcon}}" alt="">
+                    <p>{{appName}}</p>
+                  </a>
+                </div>
+              {{/each}}
+                <div class="col-25 last-one">
+                  <a href="pages/applications.html">
+                    <img src="img/sectionIcon/iflyui-icon-all.png" alt="">
+                    <p>全部</p>
+                  </a>
+                  {{#if showCorner}}<i class="icon icon-new"></i>{{/if}}                      
+                </div>
+              </div> 
+            </script>
+            
+            <!-- 待办 -->
+            <script type="text/template7" id="existTemp">
+              <ul>
+                <li data-url="{{appUrl}}">
+                  <a class="item-content" href="#">
+                    <div class="item-media">
+                      {{#js_compare "this.count!=0"}}
+                        <img width="100%" src="img/scheduleIcon/fly-exist.png">
+                      {{else}}
+                        <img width="100%" src="img/scheduleIcon/fly-none.png">
+                      {{/js_compare}}
+                      
+                    </div>
+                    <div class="item-inner">
+                      {{#js_compare "this.count!=0"}}
+                        <div class="item-title"><span>{{count}}条待办</span></div>
+                        <div class="item-subtitle">{{title}}</div>
+                      {{else}}
+                        <div class="item-title"><span>暂无待办</span></div>
+                        <div class="item-subtitle">你的效率棒棒哒</div>
+                      {{/js_compare}}
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </script>
+
+            <!-- 资讯 -->
+            <script type="text/template7" id="headlines">
+                               
+              {{#each this}}
+                <li>
+                  <a href="#" onclick="inforGoTo('{{this.hasSubject}}','{{this.newsType}}','{{this.newsId}}')" class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class='item-title {{#js_compare "this.newsType == 1"}}item-title-limit{{/js_compare}}'>{{#if this.hasSubject}}<span class="ifly-tip">专题</span>{{/if}}{{newsTitle}}</div>
+                        </div>
+
+                        <!-- 多图模式 -->
+                        {{#js_compare "this.newsType=='2'"}}
+                        <div class="row no-gutter ifly-three-row">
+                          <div class="col-33"><span><img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt=""></span></div>
+                          <div class="col-33"><span><img data-src="{{newsImg[1].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt=""></span></div>
+                          <div class="col-33"><span><img data-src="{{newsImg[2].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt=""></span></div>
+                        </div>
+                        {{/js_compare}}
+                        
+                        <!-- 图文图集 -->
+                        {{#js_compare "this.newsType=='3'"}}
+                        <div class="ifly-photos">
+                          <img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt="">
+                          <span class="count">{{imgsCount}}</span>
+                        </div>
+                        {{/js_compare}}
+                        
+                        <!-- 视频 -->
+                        {{#js_compare "this.newsType=='4'"}}
+                        <div class="ifly-video">
+                          <img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" width="100%" alt="">
+                          <span class="play"></span>
+                        </div>
+                        {{/js_compare}}
+
+                        <div class="item-subtitle {{#js_compare "this.newsType=='1'"}}item-subtitle-po{{/js_compare}}">
+
+                          {{#if this.hasStick}}<span class="ifly-blue">置顶</span>&nbsp;&nbsp;{{/if}}
+                          <span><i class="icon icon-eye"></i>&nbsp;{{pageViews}}</span>&nbsp;&nbsp;
+
+                          <!-- 专题和通知不显示点赞 -->
+                           {{#js_compare "this.contentType!='1' && !this.hasSubject"}}
+                           <span class="upvote"><i class="icon icon-thumbmark"></i>&nbsp;<font>{{upvote}}</font></span>
+                           {{/js_compare}}
+                           
+                          <span class="ifly-fr">{{publicDate}}</span>
+
+                        </div>
+                    </div>
+
+                    <!-- 一图模式 -->
+                    {{#js_compare "this.newsType=='1'"}}
+                    <div class="item-media info-head"><img data-src="{{newsImg[0].imgUrl}}" class="lazy lazy-fadein" src="img/ifly-occupy.png" /></div>
+                    {{/js_compare}}
+
+                  </a>
+                </li>
+              {{/each}}
+              
+            </script>
+
+            <script type="text-template7" id="notifyTpl">
+            {{#each this.content}}
+                <li>
+                    <a href="" class="item-content" onclick="toIframePage('{{appOpenUrl}}','{{../../type}}')">
+                        <div class="item-inner">
+                            <div class="item-title">{{noticeTitle}}</div>
+                            <div class="item-subtitle">{{createDate}}</div>
+                        </div>
+                    </a>
+                </li>
+            {{/each}}
+            </script>
+
+            <!-- 搜索结果 -->
+            <script type="text/template7" id="searchResult">
+              {{#js_compare "this.length!=0"}}
+                  {{#each this}}
+                    <ul class="personal-msg" data-email="{{email}}">
+                        <li class="head-msg">
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              {{#js_compare "this.headImg!=null"}}
+                              <img src="{{headImg}}" width="44">
+                              {{else}}
+                              <img src="img/ifly-default-head.png" width="44" alt="">
+                              {{/js_compare}}
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">{{name}}&nbsp;&nbsp;<span class="email">{{email}}</span></div>
+                              <div class="item-subtitle">{{deptName}}</div>
+                            </div>
+                          </a>
+                        </li>
+
+                        {{#js_compare "this.mobilePhone!=''"}}
+                        <li class="phone-call" data-number="{{mobilePhone}}">
+                            <a href="#" class="item-link item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">{{mobilePhone}} <span class="ifly-fr"><i class="icon icon-phone"></i></span></div>
+                                </div>
+                            </a>
+                        </li>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.telePhone!=''"}}
+                        <li class="phone-call" data-number="{{telePhone}}">
+                            <a href="#" class="item-link item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">{{telePhone}} <span class="ifly-fr"><i class="icon icon-phone"></i></span></div>
+                                </div>
+                            </a>
+                        </li>
+                        {{/js_compare}}
+
+                        {{#each this.phone}}
+                          <li class="phone-call" data-number="{{mobilePhone}}">
+                            <a href="#" class="item-link item-content">
+                              <div class="item-inner">
+                                <div class="item-title">{{this}} <span class="ifly-fr"><i class="icon icon-phone"></i></span></div>
+                              </div>
+                            </a>
+                          </li>
+                        {{/each}}
+
+                        {{#js_compare "this.type=='l'"}}
+                        <li class="return"><img src="img/scheduleIcon/fly-left.png" style="vertical-align: -1px" width="10px" alt=""><span>返回</span></li>
+                        {{else}}
+                        <li class="warn-msg">
+                          <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">号码有误，提醒TA修改号码</div>
+                                <div class="item-after"></div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="leader">
+                          <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">上级领导</div>
+                                <div class="item-after"></div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        {{/js_compare}}
+                      </ul>
+                  {{/each}}
+                {{/js_compare}}
+                {{#js_compare "this.length==0"}}
+                    <ul>
+                        <li class="item-content">
+                            暂无数据
+                        </li>
+                    </ul>
+                {{/js_compare}}
+            </script>
+
+            <!--车牌搜索结果-->
+            <script type="text/template7" id="licensePlate">
+                {{#js_compare "this!=null"}}
+                <ul class="personal-msg">
+                    <li class="phone-call" data-number="{{data.phoneNumber}}">
+                        <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">{{data.phoneNumber}} <span class="ifly-fr"><i class="icon icon-phone"></i></span></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">{{data.plateNo}}
+                                    {{#js_compare "this.data.userType==2"}}
+                                    （访客）
+                                    {{/js_compare}}
+                                    {{#js_compare "this.data.userType==3"}}
+                                    （供应商）
+                                    {{/js_compare}}
+                                    {{#js_compare "this.data.userType==4"}}
+                                    （贵宾）
+                                    {{/js_compare}}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                {{/js_compare}}
+
+            </script>
+
+            <!-- 移动HR -->
+            <script type="text/template7" id="moveHr">
+              
+              <div class="ifly-section">
+                <div class="row no-gutter">
+                  {{#each this}}
+                    <div class="col-33">
+                      <a href="#" data-url="{{url}}" data-appId="{{appId}}">
+                        <img src="{{imgUrl}}" alt="">
+                        <p>{{name}}</p>
+                      </a>
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            </script>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <div class="ifly-modal-top">
+      <div class="modal-inner">
+           <div class="modal-text">
+              <div class="list-block media-list" id="searchResultCont"></div>
+           </div>
+      </div>
+    </div>    
+
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/plugins/framework7/framework7.min.js"></script>
+    <!-- Path to toast -->
+    <script src="js/plugins/toast/toast.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/plugins/jwplayer/jwplayer.js"></script>
+    <script src="js/plugins/jwplayer/jwplayer.html5.js"></script>
+
+    <script src="js/plugins/lib/aes.js"></script>
+    <script src="js/plugins/lib/mode-ecb.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/apps/index.js"></script>
+    
+  </body>
+</html> 

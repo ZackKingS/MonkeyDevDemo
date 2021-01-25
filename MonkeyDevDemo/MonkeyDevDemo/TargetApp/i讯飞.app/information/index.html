@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags-->
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone = no" />
+		<link rel="stylesheet" href="css/framework7-icons.css">
+		<link rel="stylesheet" href="css/framework7.ios.min.css">
+		<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+		<!--<link rel="stylesheet" href="js/vedio/css/video-js.css">-->
+		<link rel="stylesheet" href="js/media/zy.media.min.css" />
+		<link rel="stylesheet" href="css/toast.css">
+		<link rel="stylesheet" href="css/app.css">
+		<!-- 
+		<link rel="stylesheet" href="pages/ifly_Information_pictureCarousel/ifly_Information_pictureCarousel.css" /> -->
+
+	</head>
+
+	<body>
+		<div class="statusbar-overlay"></div>
+		<div class="views">
+			<div class="view view-main">
+				<!-- 主页面-->
+				<div class="pages">
+					<div class="page firstPage" data-page="index">
+
+					</div>
+					<!-- Home page -->
+					<div class="page navbar-fixed  no-animation iflyui-news-detail" data-page="ifly_Information_normal">
+						<!--导航栏-->
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="left">
+									<a href="#" class="link  icon-only " onclick="clearVideo();">
+										<i class="icon icon-back"></i>
+									</a>
+								</div>
+								<!--资讯显示的页面-->
+								<div class="center" style="font-weight: normal;color: #333">资讯</div>
+							</div>
+						</div>
+						<!--内容区-->
+						<div class="page-content">
+							<h2 class="headlines_title"></h2>
+							<h4><span class="publicTime"></span></h4>
+
+					
+
+							<!--<div class="playvideo">
+								<div class="zy_media">-->
+								<div class="ifly-vedio-wap">
+									<video  id="my_video" preload="none" style="display: none; width: 99%;" controls="controls" x5-video-player-type='h5' x5-video-player-fullscreen='false'>
+										<source src="" type="video/mp4" id="viderSrc"> 您的浏览器不支持HTML5视频
+									</video>
+								</div>
+								<!--</div>
+								<div id="modelView">&nbsp;</div>
+							</div>-->
+							<div class="main-content" >
+								<!--	<img src="images/icons/ad01.jpg" />-->
+							</div>
+							<p class="bot-browse">
+								<!--<span><i class="icon-news icon-browse"></i> 1234</span>
+			<span><i class="icon-news icon-thumb"></i> 1234</span>-->
+							</p>
+						</div>
+					</div>
+				
+
+				</div>
+
+			</div>
+
+		</div>
+		<script type="text/javascript" src="js/common/zepto.min.js"></script>
+		<script src="js/media/zy.media.min.js"></script>
+		<script src="js/lib/framework7.min.js"></script>
+	
+		<script src="js/common/toast.js"></script>
+		<script src="js/apps/app.js"></script>
+		<script type="text/javascript" src="pages/ifly_Information_MainPage/ifly_Information_MainPage.js"></script>
+		<script src="js/lib/aes.js"></script>
+		<script src="js/lib/mode-ecb.js"></script>
+		<script src="js/apps/server.js"></script>
+		<script src="js/apps/view.js"></script>
+
+		<!--<script type="text/javascript" src="js/common/require.js"></script>
+		<script type="text/javascript" src="js/common/config.js"></script>-->
+
+		<!--<script type="text/javascript" src="pages/ifly_Information_normal/ifly_Information_normal.js"></script>-->
+		<script type="text/javascript" src="pages/ifly_Information_special/ifly_Information_special.js"></script>
+		<script type="text/javascript" src="pages/ifly_Information_pictureCarousel/ifly_Information_pictureCarousel.js"></script>
+		<!--<script type="text/javascript" src="js/vedio/js/video.min.js"></script>-->
+	</body>
+
+</html>

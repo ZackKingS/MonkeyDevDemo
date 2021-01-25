@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>RealTimeLocationShare</key>
+    <dict>
+        <key>SupportConversationTypes</key>
+        <array>
+            <string>1</string>
+            <integer>3</integer>
+        </array>
+        <key>MaxParticipants</key>
+        <integer>5</integer>
+        <key>Enable</key>
+        <true/>
+    </dict>
+	<key>File</key>
+	<dict>
+		<key>RelativePath</key>
+		<string>Documents/MyFile</string>
+	</dict>
+	<key>Voice</key>
+	<dict>
+		<key>AudioEncodingBitRate</key>
+		<real>7950</real>
+	</dict>
+	<key>Image</key>
+	<dict>
+		<key>MaxOriginalImageSize</key>
+		<integer>1024</integer>
+		<key>ImageQuality</key>
+		<integer>1</integer>
+		<key>ImageWidth</key>
+		<integer>2000</integer>
+		<key>ImageHeight</key>
+		<integer>2000</integer>
+	</dict>
+	<key>CustomerService</key>
+	<dict>
+		<key>SuspendWhenLeave</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

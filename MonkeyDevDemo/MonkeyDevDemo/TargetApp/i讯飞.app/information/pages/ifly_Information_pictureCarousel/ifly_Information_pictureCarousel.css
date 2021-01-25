@@ -1,0 +1,9 @@
+.swiper-slide {
+    background:#fff;
+}
+.swiper-slide span {
+    text-align:center;
+    display:block;
+    margin:20px;
+    font-size:21px;
+}

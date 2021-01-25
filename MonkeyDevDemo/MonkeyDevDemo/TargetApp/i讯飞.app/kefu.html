@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>客服服务中心</title>
+    <script src="js/plugins/jquery.min.js"></script>
+    <!--<script src="http://kefu.iflytek.com/webim/easemob.js"></script>-->
+    <script src="js/plugins/lib/aes.js"></script>
+    <script src="js/plugins/lib/mode-ecb.js"></script>
+</head>
+<body>
+
+</body>
+<!--<script src="http://kefu-test.iflytek.com/webim/easemob.js"></script>-->
+<script src="http://kefu.iflytek.com/webim/easemob.js"></script>
+<script>
+    function iflyRequest(data, callback) {
+<!--    var url = 'http://117.71.53.47:9080/TyTransService/tytranservice/transfer/transInterface';-->
+    var url = 'https://iflyapp.iflytek.com:9443/TyTransService/tytranservice/transfer/transInterface';
+
+        // 数据加密
+        data = data;
+        var paramData = data;
+        data = JSON.stringify(data);
+
+        var userInfo = localStorage.getItem("userInfo");
+        userInfo = JSON.parse(userInfo);
+        var dataKey = CryptoJS.enc.Utf8.parse(userInfo.securityKey);
+        var dataSrcs = CryptoJS.enc.Utf8.parse(data);
+        var encrypted = CryptoJS.AES.encrypt(dataSrcs, dataKey, {
+            mode: CryptoJS.mode.ECB,
+            padding: CryptoJS.pad.Pkcs7
+        });
+
+        var securityData = {
+            "securityData": encrypted.toString()
+        };
+        securityData = JSON.stringify(securityData);
+        $.ajax({
+            type: 'POST',
+            url: url,
+            async: true,
+            data: securityData,
+            timeout: 10000, //超时时间设置，单位毫秒
+            //dataType: 'json',
+            success: function(data) {
+                //var securityData = JSON.parse(data);
+                //securityData = securityData.securityData;
+                //数据解密
+                var decrypt = CryptoJS.AES.decrypt(data.securityData, dataKey, {
+                    mode: CryptoJS.mode.ECB,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+                decrypt = CryptoJS.enc.Utf8.stringify(decrypt).toString();
+                var jsonData = JSON.parse(decrypt);
+                //回调
+                callback(jsonData);
+                //hideLoading();
+
+            },
+            error: function(xhr, status) {
+               console.log(status)
+            }
+        });
+    }
+    function customServerFn() {
+        var userInfo = localStorage.getItem("userInfo");
+        userInfo = JSON.parse(userInfo);
+        iflyRequest({
+            "userAccount": userInfo.userAccount,
+            "token": userInfo.token,
+            "methodCode": "B100010048",
+        }, function (data) {
+            if(data.result&&data.result!='false'){
+                console.log(data.content.url)
+                $.ajax({
+                    type: 'POST',
+                    url:  'https://'+data.content.restServer+'/'+data.content.orgName+'/'+data.content.appName+'/users',
+                    data:'{"grant_type":"password","username":"'+data.content.accountName+'","password":"'+data.content.password+'"}',
+                    dataType: 'json',
+                    success:function(){
+                        window.easemobim = window.easemobim || {};
+                        easemobim.config = {
+                            hide: true,
+                            autoConnect: true,
+                            configId: data.content.configId,
+                            xmppServer: data.content.xmppServer,
+                            restServer: data.content.restServer,
+                            user: {
+                                username: data.content.accountName,
+                                password: data.content.password,
+                            }
+                        }
+                        easemobim.bind({configId: data.content.configId,
+                                       xmppServer: data.content.xmppServer,
+                                       restServer: data.content.restServer
+                                       })
+                    },
+                    error: function (xhr) {
+                        if(xhr.status==400){
+                            window.easemobim = window.easemobim || {};
+                            easemobim.config = {
+                                hide: true,
+                                autoConnect: true,
+                                configId: data.content.configId,
+                                xmppServer: data.content.xmppServer,
+                                restServer: data.content.restServer,
+                                user: {
+                                    username: data.content.accountName,
+                                    password: data.content.password,
+                                }
+                            };
+                            easemobim.bind({configId: data.content.configId,
+                                           xmppServer: data.content.xmppServer,
+                                           restServer: data.content.restServer
+                                           })
+                        }
+                    }
+                });
+            } else {
+                    
+            }
+        })
+    }
+    customServerFn();
+</script>
+</html>

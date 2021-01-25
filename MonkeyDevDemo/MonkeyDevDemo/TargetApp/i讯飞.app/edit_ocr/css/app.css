@@ -1,0 +1,284 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff !important;
+  overflow: hidden;
+}
+
+input, input[type='text'], input[type='number'] {
+  border: none;
+  -moz-appearance:none;
+  -webkit-appearance : none ;/*解决ios上按钮的圆角问题*/
+  border-radius: 0;/*解决ios上输入框圆角问题*/
+  outline:medium;/*去掉鼠标点击的默认黄色边框*/
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.navbar, .subnavbar, .toolbar {
+    background: white !important;
+}
+
+i.icon.ifly-back {
+  width: 11px;
+  height: 19px;
+  background:url(../img/ifly-icon-back.png) no-repeat center center;
+  background-size: 100%
+}
+
+.check-info-banner {
+  width: 100%;
+}
+
+.check-info-banner img {
+  width: 100%;
+  height: auto;
+}
+
+.check-info-line {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(235, 235, 235);
+}
+
+.address-list-hide {
+  display: none;
+}
+
+.check-info-save1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 49px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.check-info-save1 p {
+  color: #111111;
+  margin-left: 10px;
+}
+
+.check-info-save1 label {
+  margin-right: 10px;
+}
+
+.check-info-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 49px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.check-info-name label {
+  margin-left: 10px;
+}
+
+.check-info-name input {
+  flex: 1;
+  margin: 0 15px;
+  font-size: 13px;
+}
+
+.contact-name {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-left: 15px;
+  background-image: url("../img/ifly-icon-contact.png");
+  background-size: 100%;
+}
+
+.check-info {
+  background-color: white;
+}
+
+.check-info-added {
+  position: relative;
+  width: 100%;
+  height: 49px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.check-info-added p {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  height: 49px;
+  line-height: 49px;
+  margin: 0 !important;
+}
+
+.check-info-added .remove {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 22px;
+  height: 22px;
+  background:url(../img/ifly-icon-removeinfo.png) no-repeat center center;
+  background-size: 100%;
+}
+
+.add-info-input {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+}
+
+.remove-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 49px;
+}
+
+.line {
+  width:100%;
+  border-bottom:1px solid rgb(239, 239, 239);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transform: scaleY(0.5);
+}
+
+.check-info .check-info-add {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 49px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.check-info-add label {
+  margin-left: 10px;
+}
+
+.check-info-add input {
+  flex: 1;
+  margin-left: 10px;
+  margin-right: 45px;
+}
+
+.check-info-add .add {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  right: 15px;
+  background:url(../img/ifly-icon-addinfo.png) no-repeat center center;
+  background-size: 100%
+}
+
+.add-text {
+  width: 100%;
+  height: 49px;
+  margin-left: 50px;
+  vertical-align: middle;
+  line-height: 49px;
+  color: #3082F1;
+  font-size: 13px;
+}
+
+.add-info-action {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-phone, .contact-email, .contact-company, .contact-address {
+  display: inline-block;
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  width: 17px;
+  height: 17px;
+}
+
+.contact-phone {
+  background:url(../img/ifly-icon-phone.png) no-repeat center center;
+  background-size: 100%;
+}
+
+.contact-email {
+  background:url(../img/ifly-icon-email.png) no-repeat center center;
+  background-size: 100%;
+}
+
+.contact-company {
+  background:url(../img/ifly-icon-company.png) no-repeat center center;
+  background-size: 100%;
+}
+
+.contact-address {
+  background:url(../img/ifly-icon-location.png) no-repeat center center;
+  background-size: 100%;
+}
+
+.check-info-company {
+  position: relative;
+  width: 100%;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.check-info-company p {
+  margin: 0 45px 0 50px;
+  height: 49px;
+  padding: 10px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.check-info-company-detail {
+  position: relative;
+  width: 100%;
+  height: 49px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.remove-company-info {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  background:url(../img/ifly-icon-removeinfo.png) no-repeat center center;
+  background-size: 100%;
+}
+
+.check-info-address {
+  position: relative;
+}
+
+.check-info-address p {
+  font-size: 15px;
+  margin: 0 45px 0 50px;
+  height: 49px;
+  padding: 10px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.remove-address-info {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  background:url(../img/ifly-icon-removeinfo.png) no-repeat center center;
+  background-size: 100%;
+}

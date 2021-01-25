@@ -1,0 +1,1351 @@
+
+/*body{overflow:auto;}*/
+*{margin:0;padding:0;list-style:none}
+i.icon{
+    width:30px;
+    height:30px
+}
+i.icon.icon_home {
+    background-image: url(../images/icons/iflyui-icon-home.png);
+}
+i.icon.icon-back{
+    width:26px;
+    height:26px;
+    background-image:url(../images/icons/iflyui-icon-back-spot.png);
+}
+i.icon-point{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: #dbdbdb;
+    border-radius: 100%;
+    vertical-align: middle
+}
+i.icon.icon-edit{
+    width:18px;
+    height:18px;
+    background-image:url(../images/icons/iflyui-icon-edit.png);
+}
+i.icon.icon-sure{
+    background-image:url(../images/icons/iflyui-icon-sure.png)
+}
+.navbar.pages_background i.icon.icon-back,
+.navbar-inner.pages_backgroundGray i.icon.icon-back{
+    width:26px;
+    height:26px;
+    background-image:url(../images/icons/iflyui-icon-back.png);
+}
+.font_color_white {
+    color: #fff;
+}
+
+.firstPage{
+    background: rgb(255, 255, 255);
+}
+
+.index_col_img16 img{
+    width: 80%;
+}
+.col-16{
+    width: 16%;
+    margin-top: -35px;
+}
+.col-20{
+    width: 60%;
+}
+.index_col_img20{
+    text-align: center
+}
+.index_col_img20 img{
+    width: 10%;
+}
+
+/*.col_text {
+ margin-top: -30px;
+ padding-bottom: 20px;
+ text-align: center;
+ font-family: "微软雅黑";
+ }*/
+
+.pages_backgroundGray {
+    background: rgb(201, 201, 206);
+}
+.reimbursementamount {
+    font-size:15px;
+    margin-right:30px ;
+
+}
+.moneydetail
+{
+    margin-right:45px ;
+    font-size:15px;
+}
+
+
+.infinite-scroll-preloader {
+    margin-top:20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+/*.row {
+ margin-bottom: 15px;
+ }*/
+
+.li_background1{
+    background: rgba(255, 204, 102,0.2)
+}
+.li_background2{
+    background: rgba(0, 204, 204,0.1)
+}
+.li_background3{
+    background: rgba(204, 255, 153,0.1)
+}
+
+
+
+#image_ul{margin:10px 15px 0px 15px;padding:0;display:table}
+#image_ul li{width:40px;height:40px;position:relative;display:inline-block;margin:0 10px 0 0}
+#image_ul li .photo-close{position:absolute;right:-5px;top:-5px;border-radius:100%;width:16px;height:16px;line-height:14px;text-align:center;font-size:22px;background:#f33a35;color:#fff;}
+#image_ul li img{width:100%;height:100%;display:block;}
+
+#attachment_ul{margin:10px 15px 0px 15px;padding:0;display:table}
+#attachment_ul li{width:40px;height:40px;position:relative;display:inline-block;margin:0 10px 0 0}
+#attachment_ul li .photo-close{position:absolute;right:-5px;top:-5px;border-radius:100%;width:16px;height:16px;line-height:14px;text-align:center;font-size:22px;background:#f33a35;color:#fff;}
+#attachment_ul li img{width:100%;height:100%;display:block;}
+
+
+
+/*统一修改framework7*/
+.navbar{
+    font-size: 14px
+}
+.navbar a{
+    color: #00baff
+}
+.navbar .searchbar-cancel{
+    font-weight: normal;
+    color: #fff
+}
+.navbar::after,
+.list-block .item-inner::after,
+.list-block ul::before,.list-block ul::after{
+    background-color: #efefef
+}
+.list-block{
+    font-size: 16px
+}
+.list-block .item-content{
+    padding:0 10px
+}
+.list-block .item-inner{
+    padding-left: 0;
+    padding-right:0
+}
+.page-content > .list-block,
+.page-content.list-block,
+.toolbar.list-block,.lump-subsidy{
+    margin: 0
+}
+.item-content .item-inner .item-title{
+    color: #4b4b4b
+}
+.item-content .item-inner .item-after{
+    color: #333
+}
+.list-block .item-media{
+    margin-left: 15px
+}
+.list-block .item-media+.item-inner{
+    margin-left: 0
+}
+.toolbar.list-block .icon-form-checkbox{
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: -2px
+}
+.toolbar.list-block .item-media{
+    padding: 0;
+    margin: 0;
+}
+.toolbar.list-block label.label-checkbox{
+    padding-top:4px;
+    margin-left: 10px;
+    color: #4b4b4b
+}
+.toolbar.list-block .em-orange{
+    font-size: 20px;
+    margin: 0 3px
+}
+.content-block{
+    margin: 15px 0
+}
+label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-form-checkbox,
+label.label-checkbox input[type="radio"]:checked + .item-media i.icon-form-checkbox{
+    background-color: #00baff
+}
+
+/*统一界面样式调整*/
+ul{
+    margin: 0;
+    padding: 0
+}
+a{
+    color: #00baff
+}
+li{
+    list-style: none
+}
+p{
+    margin: 0
+}
+.bg-white{
+    background-color: #fff
+}
+
+.em-orange{
+    color: #ffa849!important
+}
+.em-blue{
+    color: #00baff!important
+}
+.em-darkorange{
+    color: #ff4800!important
+}
+.text-left{
+    text-align: left!important
+}
+.text-right{
+    text-align: right!important
+}
+
+.views{
+    max-width: 480px;
+    margin: auto
+}
+.pages_background,.pages_background:after{
+    background-color: #00baff
+}
+.white-bg,.white-bg:after{
+    background-color: #fff
+}
+.load-more{
+    display: block;
+    line-height: 44px;
+    text-align: center
+}
+.load-more .ifly-add-num{
+    margin-right: 5px
+}
+
+/*统一标题*/
+.ifly-title{
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px #efefef solid;
+    font-size: 16px;
+    font-weight: normal;
+    overflow: hidden
+}
+.ifly-title .font-line{
+    display: inline-block;
+    padding-left: 15px;
+    border-left: 4px #ff7746 solid
+}
+.ifly-title .link-item{
+    margin-top: 6px;
+    margin-right: 10px;
+    float: right;
+    font-size: 12px
+}
+
+/*统一按钮样式*/
+.ifly-btn{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    border-radius: 3px;
+    background-color: #fff;
+    border:1px transparent solid;
+    color: #666;
+    font-size: 13px;
+    vertical-align: middle;
+    transition: opacity ease-out 0.2s
+}
+.ifly-btn:hover{
+    opacity: 0.8
+}
+.ifly-btn.sm-btn{
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px
+}
+.ifly-btn.blue-btn,
+.ifly-btn.orange-btn,
+.ifly-btn.darkorange-btn,
+.ifly-btn.green-btn{
+    color: #fff
+}
+.ifly-btn.blue-btn{
+    background-color: #00baff;
+    border-color: #00baff
+}
+.ifly-btn.orange-btn{
+    background-color: #ffa81f;
+    border-color: #ffa81f
+}
+.ifly-btn.darkorange-btn{
+    background-color: #ffa849;
+    border-color: #ffa849
+}
+.ifly-btn.green-btn{
+    background-color: #7eaf26;
+    border-color: #7eaf26
+}
+.ifly-btn.default-btn{
+    color: #333;
+    border-color: #b1b1b1
+}
+.ifly-btn-bot{
+    display: flex
+}
+.ifly-btn-bot a.ifly-btn{
+    flex: 1;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 0;
+    font-size: 18px;
+    text-align: center
+}
+
+/*统一tag*/
+.ifly-tags{
+    display: inline-block;
+    height: 22px;
+    line-height: 24px;
+    padding: 0 5px;
+    text-align: center;
+    font-style: normal;
+    font-size: 13px;
+    border: 1px #e5e5e5 solid;
+    border-radius: 3px;
+    color: #999
+}
+.ifly-tags.green-tag{
+    border-color: #4bce9f;
+    color: #49ce9f
+}
+.ifly-tags.red-tag{
+    border-color: #fd6869;
+    color: #fd6869
+}
+.ifly-tags.blue-solid-tag{
+    background-color: #3d8eef;
+    border-color:#3d8eef;
+    color: #fff
+}
+
+/*增加减少*/
+.ifly-reduce-num,.ifly-add-num{
+    display: inline-block;
+    vertical-align: -1px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #fc6464;
+    border-radius: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: #fff
+}
+.ifly-add-num{
+    background-color: #00baff
+}
+
+/*首页样式调整*/
+.index-content .index-row:first-child{
+    background-color: #00baff;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    text-align: center
+}
+.index-content .index-row:first-child h4{
+    font-weight: normal;
+    margin-top: 5px;
+    color: #fff
+}
+.index-content .index-row:first-child img{
+    height: 50px
+}
+
+.index-content .section-wap{
+    background-color: #fff;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-top: 1px #efefef solid;
+    border-bottom: 1px #efefef solid
+}
+.index-content .section-wap .ifly-title{
+    margin-bottom: 20px
+}
+.index-content .section-wap .index-row{
+    text-align: center
+}
+.index-content .section-wap h4{
+    margin: 0;
+    margin-top: 5px;
+    font-weight: normal;
+    color: #666
+}
+.index-content .section-wap img{
+    height: 40px
+}
+
+.index-content > .tab > .list-block > ul:before{
+    background-color: #fff
+}
+
+/*报销单界面*/
+.page-create-expense .item-inner::after,
+.page-create-expense .expense-list::before{
+    background-color: transparent
+}
+.page-create-expense .expense-mes-list,
+.page-create-expense .expense-list{
+    background-color: #fff
+}
+.page-create-expense .expense-mes-list .item-content,
+.page-create-expense .expense-list li:not(:last-child){
+    border-bottom: 1px #efefef solid
+}
+.page-create-expense .expense-mes-list{
+    margin-bottom: 10px
+}
+.page-create-expense .expense-list{
+    font-size: 12px;
+    color: #b1b1b1
+}
+.page-create-expense .expense-list .expenseContent{
+    margin: 2px 0;
+    font-size: 14px;
+    color: #333
+}
+.page-create-expense .expense-list .item-subtitle{
+    color: #00baff
+}
+.page-create-expense .expense-list .item-after i{
+    font-style: normal;
+    font-size: 12px;
+    line-height: 35px
+}
+.page-create-expense .expense-list .item-after{
+    color: #ffa849;
+    font-size: 20px;
+}
+.page-create-expense .toolbar{
+    padding: 0 10px;
+    font-size: 15px;
+    overflow: hidden
+}
+
+/*提交差旅报销单*/
+
+.fare-subsidy-list{
+    margin-bottom: 5px!important
+}
+.expense-city-wap .trip-time,
+.fare-subsidy-list .trip-time{
+    margin: 10px 0
+}
+.expense-city-wap .ifly-tags,
+.fare-subsidy-list .ifly-tags{
+    margin-right: 10px
+}
+.expense-city-wap .item-title,
+.fare-subsidy-list .fare-subsidy-city{
+    margin-left: 48px;
+    font-size: 14px;
+    color: #333
+}
+.page-submit-exp .expense-city-wap{
+    background-color: #fff;
+    margin-bottom: 5px;
+    color: #333
+}
+.page-submit-exp .expense-city-wap textarea{
+    height: 50px;
+    font-size: inherit
+}
+
+.page-submit-exp .total-free,
+.page-submit-exp .expense-type{
+    margin-bottom: 5px
+}
+.page-submit-exp .expense-type .department-title{
+    padding: 8px 0;
+    font-size: 14px;
+    text-align: center
+}
+.page-submit-exp .total-free .item-content .item-inner .item-title{
+    color: #333
+}
+.page-submit-exp .total-free .money{
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: normal
+}
+.page-submit-exp .submit-exp-list{
+    font-size: 16px
+}
+.page-submit-exp .submit-exp-list li > a{
+    color: inherit;
+}
+.page-submit-exp .submit-exp-list .item-input input{
+    text-align: right;
+    font-size: inherit
+}
+
+.page-submit-exp .submit-exp-list .expensecontent{
+    color: #000
+}
+.page-submit-exp .submit-exp-list .expense-free{
+    margin: 3px 0;
+    font-size: 15px;
+    color: #00baff
+}
+.page-submit-exp .submit-exp-list .expensetime{
+    font-size: 12px;
+    color: #666
+}
+.page-submit-exp .submit-exp-list li.add-cost{
+    text-align: center;
+    padding: 10px 0
+}
+.page-submit-exp .submit-exp-list p{
+    margin: 0;
+    font-size: 14px
+}
+.page-submit-exp .submit-exp-list .item-title + .item-row{
+    text-align: right
+}
+.page-submit-exp .submit-exp-list .icon-edit{
+    vertical-align: -3px;
+    margin-right: 3px
+}
+.projectSearchbar,.costcenterSearchbar{
+    background-color: #fff
+}
+.projectSearchbar:after,.costcenterSearchbar:after{
+    background-color: #efefef
+}
+
+/*饮食补贴*/
+.popup-allowanceDetail{
+    left: 10%;
+    width: 80%;
+    height:265px;
+    margin-top:30%;
+    border-radius: 3px
+}
+.popup-allowanceDetail .list-block{
+    position: relative;
+    height: 100%
+}
+.popup-allowanceDetail .ifly-btn-bot{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+.popup-allowanceDetail li .close-popup{
+    line-height: 1.0;
+    font-size: 28px;
+    color: #666
+}
+.popup-allowanceDetail input[type=number]{
+    width: 50px;
+    text-align: center
+}
+.popup-allowanceDetail .ifly-reduce-num,
+.popup-allowanceDetail .ifly-add-num{
+    margin-top: 3px;
+}
+.fare-subsidy-detail li > a{
+    display: block;
+    padding: 5px 15px;
+    color: #333
+}
+.fare-subsidy-detail .action_top_project{
+    margin-left: 10px;
+    font-size: 18px
+}
+.fare-subsidy-detail .action_bottom{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999
+}
+.fare-subsidy-detail .action_bottom span{
+    margin-right: 15px
+}
+
+
+/*记录费用*/
+.icon-trip{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 26px
+}
+.icon-trip.icon-air{
+    background-image: url(../images/trip/icon-air.png)
+}
+.icon-trip.icon-tran{
+    background-image: url(../images/trip/icon-tran.png)
+}
+.icon-trip.icon-house{
+    background-image: url(../images/trip/icon-house.png)
+}
+.icon-trip.icon-customer{
+    background-image: url(../images/trip/icon-customer.png)
+}
+.icon-trip.icon-overtime{
+    background-image: url(../images/trip/icon-overtime.png)
+}
+.icon-trip.icon-other{
+    background-image: url(../images/trip/icon-other.png)
+}
+.icon-trip.icon-camera{
+    background-image: url(../images/icons/iflyui-icon-photo-spot.png)
+}
+
+
+.page-cost-record .list-block ul{
+    margin-bottom: 5px
+}
+.page-cost-record li input{
+    text-align: right
+}
+.page-cost-record .from-city .item-title.label{
+    width: 25%
+}
+.page-cost-record .from-city .item-after{
+    width: 100%
+}
+.page-cost-record .from-city .item-input{
+    width: 34%
+}
+.page-cost-record .from-city input{
+    text-align: center;
+}
+.page-cost-record .item-input input{
+    font-size: inherit
+}
+.page-cost-record .from-city .media-item{
+    margin: 0 5px
+}
+.tax-use-content{
+    text-align: center;
+    color: #4b4b4b
+}
+.tax-use-content div.col-25:nth-child(1),
+.tax-use-content div.col-25:nth-child(2),
+.tax-use-content div.col-25:nth-child(3),
+.tax-use-content div.col-25:nth-child(4){
+    border-top: 1px #efefef solid
+}
+.tax-use-content div.col-25:not(:nth-child(4n)){
+    border-right: 1px #efefef solid
+}
+.tax-use-content div.col-33:nth-child(1),
+.tax-use-content div.col-33:nth-child(2),
+.tax-use-content div.col-33:nth-child(3){
+    border-top: 1px #efefef solid
+}
+.tax-use-content div.col-33:not(:nth-child(3n)){
+    border-right: 1px #efefef solid
+}
+.searchbar-found li{
+    padding: 10px 0;
+    border-bottom: 1px #efefef solid;
+    font-size: 14px
+}
+.searchbar-found li > a{
+    color: #666
+}
+.searchbar-found .action_top{
+    margin-bottom: 5px
+}
+.searchbar-found .action_top_name{
+    margin-right: 5px;
+    font-size: 16px;
+    color: #333
+}
+
+.popover-triptype {
+    width: 80%;
+    padding: 10px;
+    text-align: center;
+}
+.popover-triptype .col-33{
+    margin: 8px 0
+}
+.popover-triptype .index_col_text{
+    font-size: 16px;
+    color: #787878
+}
+.popover-triptype .icon-trip{
+    width: 46px;
+    height: 46px;
+    background-size: 46px
+}
+.accordion-item-costType .icon-trip{
+    margin-left: 5px;
+    margin-top: -2px
+}
+
+
+/*我的报销单*/
+.page-myaccount .buttons-row{
+    background-color:#fff
+}
+.page-myaccount .content-block,
+.page-myaccount .list-block,
+.popup-allowanceDetail .list-block{
+    margin: 0;
+    padding: 0
+}
+.page-myaccount .buttons-row .button{
+    height: 40px;
+    line-height: 40px;
+    border-radius: 0;
+    border-width: 0;
+    border-bottom: 2px transparent solid;
+    font-size: 14px;
+    color: #999
+}
+.page-myaccount .buttons-row .button.active{
+    background-color: transparent;
+    border-bottom-color:#00baff;
+    color:#00baff
+}
+.page-myaccount .expensetitle_one,
+.page-myaccount .expensetitle_two,
+.page-myaccount .expensetitle_three{
+    color: #000
+}
+.page-myaccount .expensecontent_one,
+.page-myaccount .expensecontent_two,
+.page-myaccount .expensecontent_three{
+    margin-top: 3px;
+    font-size: 14px;
+    color: #8f8f8f
+}
+.page-myaccount .expensetime_one,
+.page-myaccount .expensetime_two,
+.page-myaccount .expensetime_three{
+    font-size: 12px;
+    color: #b1b1b1
+}
+.page-myaccount .expensemoney_two,
+.page-myaccount .expensemoney_three{
+    font-size: 18px;
+    text-align: right;
+    color: #4b4b4b
+}
+.page-myaccount .expensecontent_two .em-darkorange,
+.page-myaccount .expensecontent_two .em-blue{
+    margin-left: 10px
+}
+.page-myaccount .tabs .tab i.money{
+    font-style: normal;
+    font-size: 14px;
+    line-height: 30px
+}
+.page-myaccount .tabs .tab:first-child .expensemoney_one{
+    font-size: 18px;
+    color: #ffa849
+}
+.page-myaccount .tabs .tab:nth-child(3) .item-inner{
+    align-items: flex-start;
+}
+
+/*未报销*/
+.unexpense-list .expensetype{
+    color: #000
+}
+.unexpense-list .expensetime{
+    font-size: 12px;
+    color: #999
+}
+.unexpense-list .item-content .item-inner .item-after{
+    font-size: 18px;
+    color: #ffa849
+}
+
+/*借款冲抵*/
+.page-borrow-offset .toolbar{
+    height: auto
+}
+.page-borrow-offset .toolbar-fixed{
+    padding-bottom: 132px
+}
+
+/*审批意见*/
+.show-option-title{
+    font-weight:normal;
+    font-size:18px;
+    text-align: center;
+    overflow: hidden
+}
+.show-option-title a.close-popup{
+    float: right;
+    color: inherit
+}
+
+/*修改手风琴效果*/
+.iflyui-accordion-item{
+    position: relative;
+}
+.iflyui-accordion-item:after{
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #efefef
+}
+.iflyui-accordion-item .item-inner::after{
+    background-color: transparent
+}
+.iflyui-accordion-item-content{
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
+}
+.iflyui-accordion-item-content .wrap{
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
+
+
+
+/*
+ **2017/07/17
+ **资讯、公文、通知样式调整
+ */
+
+.button .active-state{
+
+    background:transparent
+}
+.navbar a.icon-only{
+    margin-left: -8px
+}
+.iflyui-informate-navbar{
+    background-color:#fff
+}
+.iflyui-informate-navbar .navbar_tab{
+    width: 70%
+}
+.iflyui-informate-navbar .navbar_tab a{
+    width: 30%;
+    height: 44px;
+    line-height: 44px;
+    border-color: #fff;
+    color: #333;
+    font-size: 16px;
+    overflow: inherit
+}
+.iflyui-informate-navbar .navbar_tab a.active{
+    position: relative;
+    color: #3d8eef;
+    background-color: transparent;
+}
+.iflyui-informate-navbar .navbar_tab a.active:after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 25%;
+    bottom: -1px;
+    left: 37.5%;
+    background-color: #3d8eef;
+    z-index:16
+}
+.iflyui-informate-navbar .navbar_tab a.active-state{
+    background-color: transparent
+}
+.icon-news{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    vertical-align: -1px;
+}
+.icon-news.icon-thumb{
+    background-image: url(../images/icons/iflyui-icon-thumb.png)
+}
+.icon-news.icon-browse{
+    background-image: url(../images/icons/iflyui-icon-eye.png);
+    vertical-align: -2px
+}
+.icon-news.icon-thumb-white{
+    background-image: url(../images/icons/iflyui-icon-thumbwh.png)
+}
+.icon-news.icon-thumbAl{
+    background-image: url(../images/icons/iflyui-icon-thumbAl.png)
+}
+h2.iflyui-title{
+    padding: 10px 0;
+}
+h2.iflyui-title span.text{
+    font-size: 16px;
+    padding-left: 10px;
+    margin-left: 15px;
+    border-left: 3px #3d8eef solid
+}
+.iflyui-mes-list{
+    background-color: #fff
+}
+.iflyui-mes-list .list-block{
+    margin: 0
+}
+.iflyui-mes-list .item-subtitle{
+    margin-top: 3px;
+    white-space: normal;
+    line-height: 1.6;
+    font-size: 16px
+}
+.iflyui-mes-list .item-subtitle.subject-title{
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.iflyui-mes-list .item-operate{
+    margin-top:10px;
+    font-size: 12px;
+    color: #ccc
+}
+.iflyui-mes-list .item-operate a{
+    color: #3d8eef
+}
+.iflyui-mes-list .item-operate a,
+.iflyui-mes-list .item-operate span{
+    margin-right: 5px
+}
+.iflyui-mes-list .NewsList .item-inner{
+
+}
+.iflyui-mes-list .NewsList .upvote{
+    margin-right: 0
+}
+@media screen and (max-width: 320px){
+    .iflyui-mes-list li.item-content-img .item-operate a,
+    .iflyui-mes-list li.item-content-img .item-operate span{
+        margin-right: 5px
+    }
+    .iflyui-mes-list .item-operate .date{
+        margin-right: 0
+    }
+}
+.iflyui-mes-list .item-operate .date{
+    float: right;
+    margin-right: 0
+}
+.iflyui-mes-list .ifly-tags{
+    height: 14px;
+    line-height: 14px;
+    margin-right: 5px;
+    font-size: 10px;
+    vertical-align: 2px
+}
+.iflyui-mes-list .item-media-right{
+    margin-left: 0;
+}
+.iflyui-mes-list .img-row-list{
+    margin-top: 10px
+}
+.iflyui-mes-list .img-row-list .col-33{
+    width: calc((100% - 5px * 2) / 3)
+}
+.iflyui-mes-list .img-row-list .col-50{
+    width: calc((100% - 5px) / 2)
+}
+.iflyui-mes-list .img-row-list img{
+    width: 100%;
+    height:auto;
+}
+
+.iflyui-mes-list .img-row-list .start-btn{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    border-width: 0;
+    border-radius: 100%;
+    margin-left: -30px;
+    margin-top: -30px;
+    background-color: rgba(0,0,0,0.7);
+    line-height: 60px;
+    text-align: center;
+}
+
+.iflyui-mes-list .img-row-list .start-btn:before{
+    content:"";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 22px solid #fff;
+    vertical-align: middle
+}
+.iflyui-mes-list .img-numtips-row{
+    position: relative
+}
+.iflyui-mes-list .img-numtips-row span.tips{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    padding: 5px 10px;
+    background-color: rgba(0,0,0,0.8);
+    border-top-left-radius: 3px;
+    color: #fff
+}
+
+
+/*头条详情*/
+.iflyui-news-detail,
+.iflyui-news-detail .navbar{
+    background-color: #fff
+}
+.iflyui-news-detail{
+    line-height: 1.6;
+}
+.iflyui-news-detail .navbar:after{
+    background-color: transparent
+}
+.iflyui-news-detail h2,
+.iflyui-news-detail h4,
+.iflyui-news-detail .bot-browse{
+    padding:0 10px;
+    font-weight: normal
+}
+/*多图*/
+.swiper-container{
+    height: 100%;
+}
+.iflyui-news-detail h2{
+    margin: 0.5em 0;
+    text-align: left;
+    font-size: 18px
+}
+.iflyui-news-detail h4{
+    margin: 0;
+    padding:0 10px 10px 10px;
+    border-bottom: 1px #efefef solid
+}
+.iflyui-news-detail h4 span{
+    margin-right: 15px;
+    color: #bbb
+}
+.iflyui-news-detail .main-content{
+    padding: 20px 10px;
+    font-size: 15px;
+}
+.iflyui-news-detail .main-content img{
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;;
+}
+.iflyui-news-detail .bot-file-detail{
+    margin: 1.5em 10px;
+    padding-left: 10px;
+    border-left: 2px #dbdbdb solid;
+}
+.iflyui-news-detail .bot-file-detail,
+.iflyui-news-detail .bot-browse{
+    color: #ccc;
+    font-size: 12px
+}
+.iflyui-news-detail .bot-browse span{
+    margin-right: 10px
+}
+.iflyui-news-detail h4.sub-title{
+    padding-top: 10px;
+    background-color: #fafafa;
+    border-top: 1px #efefef solid;
+    border-bottom-width: 10px;
+    font-size: 15px
+}
+.iflyui-news-detail h4.sub-title .ifly-tags{
+    height: 14px;
+    line-height: 14px;
+    margin-right: 5px;
+    font-size: 10px;
+    vertical-align: 1px
+}
+
+
+.iflyui-infor-pictureCarousel .navbar,
+.iflyui-infor-pictureCarousel .navbar:after,
+.iflyui-infor-pictureCarousel .page-content,
+.iflyui-infor-pictureCarousel .swiper-slide{
+    background-color: #0f0f11
+}
+.iflyui-infor-pictureCarousel .navbar .icon-back{
+    background-image: url(../images/icons/iflyui-icon-backwh.png);
+}
+.iflyui-infor-pictureCarousel .swiper-slide img{
+    width: 100%
+}
+.iflyui-infor-pictureCarousel .swiper-slide .img_Carousel{
+    position: relative;
+    height: 60%;
+}
+.iflyui-infor-pictureCarousel .swiper-slide .img_Carousel img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/*.iflyui-infor-pictureCarousel .swiper-slide div.img-describe{*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+    /*height: calc(35% - 20px);*/
+    /*padding: 10px 10px 0 10px;*/
+    /*background-color: #060607;*/
+    /*font-size: 15px;*/
+    /*text-align: left;*/
+    /*color: #fff;*/
+    /*line-height: 1.8;*/
+    /*box-sizing: border-box*/
+/*}*/
+/*.iflyui-infor-pictureCarousel .swiper-slide div.img-describe .describe-text{*/
+    /*height: calc(100% - 27px);*/
+    /*overflow-y:auto*/
+/*}*/
+/*.iflyui-infor-pictureCarousel .swiper-slide div.img-describe .totalNum {*/
+    /*margin-right: 10px;*/
+/*}*/
+/*.iflyui-infor-pictureCarousel .swiper-slide div.img-describe p{*/
+    /*font-size: 12px*/
+/*}*/
+/*.swiper-slide div.img-describe i.icon-news{*/
+    /*margin-right: 5px*/
+/*}*/
+.page-content.iflyui-mes-list >.list-block>ul:before{
+    background-color:#fff
+}
+
+
+/*视频样式*/
+/*.my-video-dimensions {
+    width: 100%!important;
+    height: 200px!important
+}
+.video-js .vjs-big-play-button{
+    width: 1.5em;
+    height: 1.5em;
+    border-width: 0;
+    border-radius:100%;
+    margin-left: -0.75em;
+    background-color: rgba(0,0,0,0.7);
+    font-size: 5em;
+    line-height: 1.5em;
+    text-align: center;
+}
+.video-js:hover .vjs-big-play-button{
+    background-color: rgba(0,0,0,0.7);
+}*/
+/*.zy_media .dec_play::before{
+    background-color:rgba(0,0,0,0.7);
+    border-width: 0
+}
+.zy_media .dec_play::after{
+    border-color: transparent transparent transparent #fff
+}
+*/
+.ifly-vedio-wap{
+    position: relative;
+}
+.ifly-vedio-wap a{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius:100%;
+    margin-left: -30px;
+    margin-top: -30px;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    line-height: 60px
+}
+.ifly-vedio-wap a:after{
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 23px solid #fff;
+    vertical-align: middle;
+}
+
+.iflyui-tabs .infinite-scroll-preloader{
+    position: relative;
+}
+.iflyui-tabs .swiper-slide .preloader{
+    width: 32px;
+    height: 32px;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+.preloader-indicator-modal .preloader{
+    background-image: url('../images/ifly-loading.png')
+}
+.iflyui-tabs .infinite-scroll-preloader .preloader{
+    margin-top: -21px;
+    background-image: url(../images/ifly-loading-gray.png)
+}
+.iflyui-tabs .historynodata{
+    padding:5px 0
+}
+.iflyui-tabs .swiper-slide > .iflyui-mes-list ul:before{
+    background-color: #fff
+}
+
+
+.list-block .item-content{
+    padding:0 10px
+}
+.list-block li.media-item .item-media, .list-block.media-list .item-media{
+    padding: 14px 0 14px 4px;
+    width:33.33%;
+    /*border-bottom:1px solid #efefef;*/
+}
+.list-block li.media-item .item-media img, .list-block.media-list .item-media img{
+    width:100%;
+    height:auto
+}
+.list-block .item-content-img .item-inner{
+    width:67%;
+}
+.list-block .item-inner{
+    padding-right:0;
+}
+.historynodata{
+    color:#999;
+    padding:10px 0
+}
+.list-block ul ul{
+    padding:0
+}
+#videoPlay{
+    cursor:pointer;
+}
+
+.item-content-img .item-operate{
+    position:absolute;
+    bottom:11px;
+    left:0;
+    width:98%
+}
+
+
+.img-describe{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(35% - 20px);
+    padding: 10px 10px 0 10px;
+    font-size: 15px;
+    text-align: left;
+    color: #fff;
+    line-height: 1.8;
+    box-sizing: border-box;
+    z-index:666;
+}
+.describe-text .titles{
+    display:block;
+    height:130px;
+    overflow-y:auto;
+}
+.swiper-slide .totalNum{
+    margin-right: 10px
+}
+.morePicture{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    margin:10px 0 0 0;
+    text-align: right;
+    font-size: 12px;
+    z-index:888;
+    color:#cc6f04
+}
+.activeIndex{
+    color:#cc6f04;
+    font-size:22px;
+}
+.totalNum{
+    position:absolute;
+    margin:10px 0 0 0;
+    left:10px;
+    bottom:10px;
+    font-size:15px;
+    z-index:888;
+    font-family: Georgia,tahoma;
+}
+
+
+/*2018/5/2 通知时间居左调整*/
+#tab3 .iflyui-mes-list .item-operate>span:first-child,
+#tab4 .iflyui-mes-list .item-operate>span:first-child{
+    display: none
+}
+#tab3 .iflyui-mes-list .item-operate .date,
+#tab4 .iflyui-mes-list .item-operate .date{
+    float: initial
+}
+
+/*预加载样式*/
+.ifly-title-emp{
+    display: block;
+    width:100%;
+    height:26px;
+    background-color: #f9f9f9;
+}
+.ifly-text-emp{
+    display: block;
+    width:100%;
+    height:27px;
+    margin-top:8px;
+    background-color: #f9f9f9;
+}
+
+.preloader-indicator-modal{
+    padding:16px;
+}
