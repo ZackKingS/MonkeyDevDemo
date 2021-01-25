@@ -14,10 +14,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
  
 //    %orig;
-    
-    //错误地址
-//    [self verificationLocation:112.407001 andLat:31.496220];
-    
+  
     //正确地址
     [self verificationLocation:114.407001 andLat:30.496220];
 }
