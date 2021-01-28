@@ -1,8 +1,13 @@
-#line 1 "/Users/zack/Desktop/MonkeyDevDemo/MonkeyDevDemoDylib/Logos/MonkeyDevDemoDylib.xm"
+#line 1 "/Users/zack/Desktop/i讯飞Hack/MonkeyDevDemo/MonkeyDevDemoDylib/Logos/MonkeyDevDemoDylib.xm"
 
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+
+@interface LocationViewController
+- (void)verificationLocation:(double)arg1 andLat:(double)arg2;
+@end
+
 
 
 #include <substrate.h>
@@ -28,20 +33,14 @@
 @class LocationViewController; 
 static void (*_logos_orig$_ungrouped$LocationViewController$locationManager$didUpdateLocations$)(_LOGOS_SELF_TYPE_NORMAL LocationViewController* _LOGOS_SELF_CONST, SEL, CLLocationManager *, NSArray *); static void _logos_method$_ungrouped$LocationViewController$locationManager$didUpdateLocations$(_LOGOS_SELF_TYPE_NORMAL LocationViewController* _LOGOS_SELF_CONST, SEL, CLLocationManager *, NSArray *); 
 
-#line 6 "/Users/zack/Desktop/MonkeyDevDemo/MonkeyDevDemoDylib/Logos/MonkeyDevDemoDylib.xm"
-@interface LocationViewController
-- (void)verificationLocation:(double)arg1 andLat:(double)arg2;
-@end
+#line 11 "/Users/zack/Desktop/i讯飞Hack/MonkeyDevDemo/MonkeyDevDemoDylib/Logos/MonkeyDevDemoDylib.xm"
 
  
 
 static void _logos_method$_ungrouped$LocationViewController$locationManager$didUpdateLocations$(_LOGOS_SELF_TYPE_NORMAL LocationViewController* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, CLLocationManager * manager, NSArray * locations){
  
-    _logos_orig$_ungrouped$LocationViewController$locationManager$didUpdateLocations$(self, _cmd, manager, locations);
-    
-    
 
-    
+  
     
     [self verificationLocation:114.407001 andLat:30.496220];
 }
@@ -51,4 +50,4 @@ static void _logos_method$_ungrouped$LocationViewController$locationManager$didU
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$LocationViewController = objc_getClass("LocationViewController"); { MSHookMessageEx(_logos_class$_ungrouped$LocationViewController, @selector(locationManager:didUpdateLocations:), (IMP)&_logos_method$_ungrouped$LocationViewController$locationManager$didUpdateLocations$, (IMP*)&_logos_orig$_ungrouped$LocationViewController$locationManager$didUpdateLocations$);}} }
-#line 26 "/Users/zack/Desktop/MonkeyDevDemo/MonkeyDevDemoDylib/Logos/MonkeyDevDemoDylib.xm"
+#line 25 "/Users/zack/Desktop/i讯飞Hack/MonkeyDevDemo/MonkeyDevDemoDylib/Logos/MonkeyDevDemoDylib.xm"
